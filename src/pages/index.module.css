@@ -1,0 +1,225 @@
+.heroBanner {
+  padding: 5.5rem 0 4.75rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.workflowSection {
+  background: linear-gradient(180deg, var(--ifm-background-color), var(--sporttech-soft));
+  padding: 3.5rem 0 4rem;
+}
+
+.sectionHeading {
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeading p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.05rem;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.workflowCard {
+  background: var(--sporttech-panel);
+  border: 1px solid var(--sporttech-line);
+  border-radius: 8px;
+  color: inherit;
+  display: block;
+  min-height: 184px;
+  padding: 1.25rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.workflowCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 16px 40px rgba(15, 32, 24, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.cardIcon {
+  align-items: center;
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+  border-radius: 8px;
+  color: var(--ifm-color-primary);
+  display: inline-flex;
+  height: 2.4rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 2.4rem;
+}
+
+.cardIcon svg {
+  fill: none;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 1.25rem;
+}
+
+.workflowCard p {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.previewSection {
+  padding: 0 0 4rem;
+}
+
+.previewGrid {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+}
+
+.tourCopyPanel {
+  align-content: center;
+  display: grid;
+  justify-items: start;
+  min-height: 22rem;
+}
+
+.tourEyebrow {
+  color: var(--ifm-color-primary);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.tourTitle {
+  margin-bottom: 0.9rem;
+  min-height: 5.4rem;
+}
+
+.tourDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.05rem;
+  min-height: 5.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.tourMeta {
+  align-items: center;
+  color: var(--ifm-color-emphasis-700);
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.tourMeta span:first-child {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+  border-radius: 999px;
+  color: var(--ifm-color-primary);
+  padding: 0.28rem 0.72rem;
+}
+
+.tourDots {
+  display: flex;
+  gap: 0.42rem;
+  margin-bottom: 1.3rem;
+}
+
+.tourDot {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  display: block;
+  height: 0.5rem;
+  transition: background 160ms ease, width 160ms ease;
+  width: 0.5rem;
+}
+
+.tourDotActive {
+  background: var(--ifm-color-primary);
+  width: 1.65rem;
+}
+
+.previewFrame {
+  background: #0e2116;
+  border: 1px solid var(--sporttech-line);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(15, 32, 24, 0.16);
+  overflow: hidden;
+}
+
+.previewWindowBar {
+  align-items: center;
+  background: #12251a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 0.45rem;
+  height: 2rem;
+  padding: 0 0.85rem;
+}
+
+.previewWindowBar span {
+  background: #5d7a6b;
+  border-radius: 999px;
+  display: block;
+  height: 0.62rem;
+  width: 0.62rem;
+}
+
+.previewWindowBar span:nth-child(1) {
+  background: #e46d6d;
+}
+
+.previewWindowBar span:nth-child(2) {
+  background: #e3bd4f;
+}
+
+.previewWindowBar span:nth-child(3) {
+  background: #62bc7a;
+}
+
+.previewVideo {
+  background: #0e2116;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.25rem;
+  }
+
+  .cardGrid,
+  .previewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tourCopyPanel {
+    min-height: 0;
+  }
+
+  .tourTitle,
+  .tourDescription {
+    min-height: 0;
+  }
+}
