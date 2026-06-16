@@ -16,7 +16,7 @@ type TourCue = {
   to: string;
 };
 
-const tourCues: TourCue[] = [
+const workflowTourCues: TourCue[] = [
   {
     start: 0,
     label: 'Event',
@@ -61,9 +61,68 @@ const tourCues: TourCue[] = [
   },
 ];
 
-function getTourCueIndex(currentTime: number): number {
-  for (let index = tourCues.length - 1; index >= 0; index -= 1) {
-    if (currentTime >= tourCues[index].start) {
+const templateEditorTourCues: TourCue[] = [
+  {
+    start: 0,
+    label: 'Studio',
+    title: 'Open Certificate Studio from the app',
+    text: 'Start from the loaded competition workspace and move into Certificate Studio without leaving the operator flow.',
+    to: '/docs/certificate-studio/overview',
+  },
+  {
+    start: 7,
+    label: 'Single',
+    title: 'Use Single for individual athletes',
+    text: 'Single templates focus on one athlete with their name, club, class, score, and placement fields.',
+    to: '/docs/certificate-studio/template-library',
+  },
+  {
+    start: 13,
+    label: 'Team',
+    title: 'Use Team for team certificates',
+    text: 'Team templates add team-specific data such as team name, club, member names, member count, totals, and place.',
+    to: '/docs/certificate-studio/template-library',
+  },
+  {
+    start: 20,
+    label: 'Syncro',
+    title: 'Use Syncro for synchronized entries',
+    text: 'Synchronized templates are built for two athletes, shared club data, class details, phase, total, and placement.',
+    to: '/docs/certificate-studio/template-library',
+  },
+  {
+    start: 31,
+    label: 'Fixed Text',
+    title: 'Add reusable fixed text',
+    text: 'Create a fixed text item and use the inspector geometry controls to place it cleanly at the top of the certificate.',
+    to: '/docs/certificate-studio/layout-controls',
+  },
+  {
+    start: 43,
+    label: 'Variables',
+    title: 'Add a placeholder from event data',
+    text: 'Choose a placeholder in the top bar, add it to the layout, then use the Inspector dropdown with sample values to remap it.',
+    to: '/docs/certificate-studio/placeholders',
+  },
+  {
+    start: 68,
+    label: 'Real Data',
+    title: 'Turn on real-data preview',
+    text: 'Switch from placeholder labels to live competition values so the layout can be checked against imported event data.',
+    to: '/docs/certificate-studio/placeholders',
+  },
+  {
+    start: 73,
+    label: 'Use',
+    title: 'Save and use the profile',
+    text: 'Save the edited profile, then send it back into the competition app for certificate production.',
+    to: '/docs/produce/certificates',
+  },
+];
+
+function getTourCueIndex(cues: TourCue[], currentTime: number): number {
+  for (let index = cues.length - 1; index >= 0; index -= 1) {
+    if (currentTime >= cues[index].start) {
       return index;
     }
   }
@@ -171,35 +230,49 @@ function WorkflowCards(): ReactNode {
   );
 }
 
-function ScreenshotPreview(): ReactNode {
-  const tourVideo = useBaseUrl('/video/sporttech-app-tour.mp4');
-  const tourPoster = useBaseUrl('/img/app/sporttech-app-tour-poster.jpg');
+type GuidedVideoTourProps = {
+  ariaLabel: string;
+  cues: TourCue[];
+  eyebrow: string;
+  posterPath: string;
+  videoPath: string;
+};
+
+function GuidedVideoTour({
+  ariaLabel,
+  cues,
+  eyebrow,
+  posterPath,
+  videoPath,
+}: GuidedVideoTourProps): ReactNode {
+  const tourVideo = useBaseUrl(videoPath);
+  const tourPoster = useBaseUrl(posterPath);
   const [activeCueIndex, setActiveCueIndex] = useState(0);
-  const activeCue = tourCues[activeCueIndex];
+  const activeCue = cues[activeCueIndex] ?? cues[0];
 
   const updateActiveCue = useCallback((video: HTMLVideoElement) => {
-    const nextCueIndex = getTourCueIndex(video.currentTime);
+    const nextCueIndex = getTourCueIndex(cues, video.currentTime);
     setActiveCueIndex((currentCueIndex) => (
       currentCueIndex === nextCueIndex ? currentCueIndex : nextCueIndex
     ));
-  }, []);
+  }, [cues]);
 
   return (
     <section className={styles.previewSection}>
       <div className="container">
         <div className={styles.previewGrid}>
           <div className={styles.tourCopyPanel}>
-            <span className={styles.tourEyebrow}>Guided workflow</span>
+            <span className={styles.tourEyebrow}>{eyebrow}</span>
             <Heading as="h2" className={styles.tourTitle} aria-live="polite">
               {activeCue.title}
             </Heading>
             <p className={styles.tourDescription}>{activeCue.text}</p>
-            <div className={styles.tourMeta} aria-label={`Video step ${activeCueIndex + 1} of ${tourCues.length}: ${activeCue.label}`}>
+            <div className={styles.tourMeta} aria-label={`Video step ${activeCueIndex + 1} of ${cues.length}: ${activeCue.label}`}>
               <span>{activeCue.label}</span>
-              <span>{activeCueIndex + 1} / {tourCues.length}</span>
+              <span>{activeCueIndex + 1} / {cues.length}</span>
             </div>
             <div className={styles.tourDots} aria-hidden="true">
-              {tourCues.map((cue, index) => (
+              {cues.map((cue, index) => (
                 <span
                   className={clsx(styles.tourDot, index === activeCueIndex && styles.tourDotActive)}
                   key={cue.label}
@@ -217,7 +290,7 @@ function ScreenshotPreview(): ReactNode {
               <span />
             </div>
             <video
-              aria-label="Guided tour of importing a live Sporttech event, checking event data, and producing PDFs"
+              aria-label={ariaLabel}
               autoPlay
               className={styles.previewVideo}
               loop
@@ -235,6 +308,27 @@ function ScreenshotPreview(): ReactNode {
         </div>
       </div>
     </section>
+  );
+}
+
+function ScreenshotPreview(): ReactNode {
+  return (
+    <>
+      <GuidedVideoTour
+        ariaLabel="Guided tour of importing a live Sporttech event, checking event data, and producing PDFs"
+        cues={workflowTourCues}
+        eyebrow="Guided workflow"
+        posterPath="/img/app/sporttech-app-tour-poster.jpg"
+        videoPath="/video/sporttech-app-tour.mp4"
+      />
+      <GuidedVideoTour
+        ariaLabel="Guided tour of opening Certificate Studio, choosing starter templates, editing placeholders, and saving a profile"
+        cues={templateEditorTourCues}
+        eyebrow="Template Editor"
+        posterPath="/img/app/sporttech-template-editor-tour-poster.jpg"
+        videoPath="/video/sporttech-template-editor-tour.mp4"
+      />
+    </>
   );
 }
 

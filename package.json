@@ -7,6 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "record:tour": "node scripts/record-app-tour.mjs",
+    "record:template-tour": "node scripts/record-app-tour.mjs template",
     "record:tour:install": "playwright install ffmpeg",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

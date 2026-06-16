@@ -16,9 +16,11 @@ const viewport = {
 const eventQuery = process.env.TOUR_EVENT_QUERY || "Deutsche Mannschafts-Meisterschaften";
 const eventId = process.env.TOUR_EVENT_ID || "a7d7b89b-e777-47fc-7cf9-edc7165b290d";
 const eventYear = process.env.TOUR_EVENT_YEAR || "2026";
-const outputVideo = path.join(docsRoot, "static", "video", "sporttech-app-tour.mp4");
-const outputPoster = path.join(docsRoot, "static", "img", "app", "sporttech-app-tour-poster.jpg");
-const tmpRoot = path.join(docsRoot, ".tmp", "app-tour");
+const tourKind = normalizeTourKind(process.env.TOUR_KIND || process.argv[2]);
+const tourConfig = tourConfigForKind(tourKind);
+const outputVideo = path.join(docsRoot, "static", "video", tourConfig.videoFilename);
+const outputPoster = path.join(docsRoot, "static", "img", "app", tourConfig.posterFilename);
+const tmpRoot = path.join(docsRoot, ".tmp", tourConfig.tmpName);
 const runtimeDir = path.join(tmpRoot, "runtime");
 const rawVideoDir = path.join(tmpRoot, "raw-video");
 const DEFAULT_MOVE_MS = 900;
@@ -66,6 +68,15 @@ async function main() {
 }
 
 async function recordTour({ appUrl, chromePath }) {
+  if (tourKind === "template") {
+    await seedLiveEvent(appUrl);
+    return recordTemplateEditorTour({ appUrl, chromePath });
+  }
+
+  return recordWorkflowTour({ appUrl, chromePath });
+}
+
+async function recordBrowserVideo(chromePath, runSteps) {
   const browser = await chromium.launch({
     executablePath: chromePath,
     headless: true,
@@ -91,22 +102,54 @@ async function recordTour({ appUrl, chromePath }) {
   });
 
   await installTourCursor(page);
-  await page.goto(`${appUrl}/#event`, { waitUntil: "networkidle" });
-  await page.waitForSelector(".app-shell");
-  await lockCaptureViewport(page);
-  await initializeTourCursor(page, 260, 210);
-  await wait(1100);
-
-  await searchAndImportLiveEvent(page);
-  const tourData = await selectTourData(page);
-  await quickCheckTour(page, tourData);
-  await produceTour(page, tourData);
-  await wait(1200);
+  await runSteps(page);
 
   const video = page.video();
   await context.close();
   await browser.close();
   return video.path();
+}
+
+async function recordWorkflowTour({ appUrl, chromePath }) {
+  return recordBrowserVideo(chromePath, async (page) => {
+    await page.goto(`${appUrl}/#event`, { waitUntil: "networkidle" });
+    await page.waitForSelector(".app-shell");
+    await lockCaptureViewport(page);
+    await initializeTourCursor(page, 260, 210);
+    await wait(1100);
+
+    await searchAndImportLiveEvent(page);
+    const tourData = await selectTourData(page);
+    await quickCheckTour(page, tourData);
+    await produceTour(page, tourData);
+    await wait(1200);
+  });
+}
+
+async function recordTemplateEditorTour({ appUrl, chromePath }) {
+  return recordBrowserVideo(chromePath, async (page) => {
+    await page.goto(`${appUrl}/#quick-check`, { waitUntil: "networkidle" });
+    await page.waitForSelector(".app-shell");
+    await page.getByRole("heading", { name: "Check Event Readiness" }).waitFor({ timeout: 120000 });
+    await page.locator(".quick-class-row").first().waitFor({ state: "visible" });
+    await lockCaptureViewport(page);
+    await initializeTourCursor(page, 260, 210);
+    await wait(1300);
+
+    await guidedClick(page, page.locator(".studio-launch").first(), { duration: 1100, pauseAfter: 850 });
+    await page.locator(".template-page.studio-page").waitFor({ state: "visible" });
+    await page.locator(".template-library-card").waitFor({ state: "visible" });
+    await lockCaptureViewport(page);
+    await wait(1200);
+
+    await openStarterTemplate(page, "Starter Individual Certificate");
+    await openStarterTemplate(page, "Starter Team Certificate");
+    await openStarterTemplate(page, "Starter Synchronized Certificate");
+    await openStarterTemplate(page, "Starter Individual Certificate");
+
+    await demonstrateTemplateEditor(page);
+    await wait(1200);
+  });
 }
 
 async function searchAndImportLiveEvent(page) {
@@ -142,6 +185,167 @@ async function searchAndImportLiveEvent(page) {
   await page.locator(".quick-class-row").first().waitFor({ state: "visible" });
   await lockCaptureViewport(page);
   await wait(1900);
+}
+
+async function seedLiveEvent(appUrl) {
+  const params = new URLSearchParams({
+    country: "",
+    query: eventQuery,
+    sport: "",
+    status: "all",
+    year: eventYear,
+  });
+  const searchResult = await fetchJson(`${appUrl}/api/import/live/events?${params}`);
+  const events = searchResult.events ?? [];
+  const event = events.find((candidate) => candidate.id === eventId)
+    ?? events.find((candidate) => candidate.name?.includes(eventQuery))
+    ?? events[0];
+
+  if (!event?.eventUrl) {
+    throw new Error(`Could not find a Sporttech event for "${eventQuery}" in ${eventYear}.`);
+  }
+
+  const importResult = await fetchJson(`${appUrl}/api/import/live`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      discipline: event.sportCode || "",
+      eventInput: event.eventUrl,
+    }),
+  });
+
+  if (!importResult.payload?.rows?.length) {
+    throw new Error("The seeded live event did not produce certificate rows.");
+  }
+}
+
+async function openStarterTemplate(page, templateName) {
+  const row = page.locator(".template-library-row").filter({ hasText: templateName }).first();
+  const activateResponse = page.waitForResponse((response) => (
+    response.url().endsWith("/api/templates/activate")
+    && response.request().method() === "POST"
+    && response.ok()
+  ), { timeout: 120000 });
+  const previewResponse = page.waitForResponse((response) => (
+    response.url().endsWith("/api/templates/preview-svg")
+    && response.request().method() === "POST"
+    && response.ok()
+  ), { timeout: 15000 });
+
+  await guidedClick(page, row.locator(".template-library-main").first(), { duration: 1050, pauseAfter: 650 });
+  await activateResponse;
+  await page.locator(".template-editor-card").waitFor({ state: "visible" });
+  await page.locator(".studio-window-meta").filter({ hasText: templateName }).first().waitFor({ state: "visible" });
+  await waitForTemplatePreview(page, previewResponse);
+  await wait(1500);
+}
+
+async function demonstrateTemplateEditor(page) {
+  const fixedTextForm = page.locator(".template-add-tools form").filter({ hasText: "Fixed text" }).first();
+  await guidedFill(page, fixedTextForm.locator("input").first(), "Event host");
+  await guidedClick(page, fixedTextForm.getByRole("button", { name: "Add Fixed Text" }), {
+    duration: 900,
+    pauseAfter: 650,
+  });
+  await page.locator(".field-inspector").filter({ hasText: "Selected fixed text" }).waitFor({ state: "visible" });
+  await setInspectorTextGeometry(page, {
+    x: 180,
+    y: 76,
+    fontSize: 14,
+  });
+  await guidedHover(page, page.locator(".template-static-text").filter({ hasText: "Event host" }).first());
+  await wait(900);
+
+  const placeholderForm = page.locator(".template-add-tools form").filter({ hasText: "Placeholder" }).first();
+  await guidedSelectWithMenu(page, placeholderForm.locator("select").first(), "athlete.name", {
+    pauseOpen: 1500,
+    pauseAfter: 900,
+  });
+  await wait(1100);
+  await guidedClick(page, placeholderForm.getByRole("button", { name: "Add Placeholder" }), {
+    duration: 900,
+    pauseAfter: 700,
+  });
+  await page.locator(".field-inspector").filter({ hasText: "Selected placeholder" }).waitFor({ state: "visible" });
+  await setInspectorTextGeometry(page, {
+    x: 420,
+    y: 76,
+    fontSize: 18,
+  });
+  await guidedHover(page, page.locator(".template-field").filter({ hasText: "athlete.name" }).first());
+  await wait(900);
+
+  const matchedDataField = page.locator(".field-inspector label").filter({ hasText: "Matched data field" }).locator("select").first();
+  await guidedSelectWithMenu(page, matchedDataField, "athlete.club", {
+    pauseOpen: 1500,
+    pauseAfter: 900,
+  });
+  await guidedHover(page, page.locator(".field-inspector").first());
+  await wait(1200);
+
+  const realDataPreview = page.locator(".template-preview-mode").getByRole("button", { name: "Real Data" });
+  const previewResponse = page.waitForResponse((response) => (
+    response.url().endsWith("/api/templates/preview-svg")
+    && response.request().method() === "POST"
+    && response.ok()
+  ), { timeout: 15000 });
+  await guidedClick(page, realDataPreview, { duration: 950, pauseAfter: 700 });
+  await waitForTemplatePreview(page, previewResponse);
+  await wait(1400);
+
+  await guidedClick(page, page.locator(".template-editor-actions").getByRole("button", { name: "Save Profile" }), {
+    duration: 1000,
+    pauseAfter: 700,
+  });
+  await page.locator(".template-save-dialog").waitFor({ state: "visible" });
+  await wait(700);
+
+  const saveResponse = page.waitForResponse((response) => (
+    response.url().endsWith("/api/templates/profile")
+    && response.request().method() === "POST"
+    && response.ok()
+  ), { timeout: 120000 });
+  await guidedClick(page, page.getByRole("button", { name: "Overwrite Current" }).first(), {
+    duration: 950,
+    pauseAfter: 700,
+  });
+  await saveResponse;
+  await page.locator(".template-save-dialog").waitFor({ state: "hidden", timeout: 120000 }).catch(() => {});
+  await wait(900);
+
+  await guidedClick(page, page.getByRole("button", { name: "Use in Competition App" }).first(), {
+    duration: 1100,
+    pauseAfter: 850,
+  });
+  await page.getByRole("heading", { name: "Produce Print PDFs" }).waitFor({ timeout: 120000 });
+  await wait(1500);
+}
+
+async function setInspectorTextGeometry(page, { x, y, fontSize }) {
+  const geometrySection = page.locator(".field-inspector .inspector-section[aria-label='Text geometry']").first();
+  await geometrySection.waitFor({ state: "visible" });
+
+  if (typeof x === "number") {
+    await guidedFill(page, geometrySection.locator("label").filter({ hasText: /^X$/ }).locator("input").first(), String(x));
+  }
+  if (typeof y === "number") {
+    await guidedFill(page, geometrySection.locator("label").filter({ hasText: /^Y$/ }).locator("input").first(), String(y));
+  }
+  if (typeof fontSize === "number") {
+    await guidedFill(page, geometrySection.locator("label").filter({ hasText: "Font size" }).locator("input").first(), String(fontSize));
+  }
+}
+
+async function waitForTemplatePreview(page, previewResponse) {
+  await Promise.race([
+    previewResponse.catch(() => {}),
+    wait(2500),
+  ]);
+  await page.locator(".template-canvas").waitFor({ state: "visible" });
+  await page.locator(".template-canvas-typst-preview, .template-field, .template-static-text").first().waitFor({
+    state: "visible",
+    timeout: 15000,
+  });
 }
 
 async function quickCheckTour(page, tourData) {
@@ -355,6 +559,48 @@ async function installTourCursor(page) {
         z-index: 2147483646;
       }
 
+      .tour-select-menu-preview {
+        background: #ffffff;
+        border: 1px solid rgba(30, 53, 39, 0.22);
+        border-radius: 8px;
+        box-shadow: 0 18px 44px rgba(12, 25, 17, 0.24);
+        color: #16251b;
+        font: 600 13px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        left: 0;
+        max-width: 420px;
+        overflow: hidden;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        width: 360px;
+        z-index: 2147483645;
+      }
+
+      .tour-select-menu-preview-group {
+        background: #eef5ec;
+        border-bottom: 1px solid rgba(30, 53, 39, 0.12);
+        color: #536457;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        padding: 7px 10px;
+        text-transform: uppercase;
+      }
+
+      .tour-select-menu-preview-option {
+        border-bottom: 1px solid rgba(30, 53, 39, 0.08);
+        padding: 8px 10px;
+        white-space: normal;
+      }
+
+      .tour-select-menu-preview-option:last-child {
+        border-bottom: 0;
+      }
+
+      .tour-select-menu-preview-option.active {
+        background: #dff0e4;
+        color: #123923;
+      }
+
       @keyframes tour-click-pulse {
         from {
           opacity: 0.95;
@@ -435,9 +681,79 @@ async function guidedSelect(page, locator, value) {
   await locator.selectOption(value);
 }
 
+async function guidedSelectWithMenu(page, locator, value, options = {}) {
+  await guidedClick(page, locator, {
+    duration: options.duration ?? DEFAULT_MOVE_MS,
+    pauseAfter: 180,
+  });
+  await showSelectMenuPreview(page, locator, value);
+  await wait(options.pauseOpen ?? 1200);
+  await locator.selectOption(value);
+  await hideSelectMenuPreview(page);
+  await wait(options.pauseAfter ?? DEFAULT_PAUSE_MS);
+}
+
 async function guidedHover(page, locator) {
   const { x, y } = await locatorPoint(page, locator);
   await moveCursor(page, x, y, 650);
+}
+
+async function showSelectMenuPreview(page, locator, value) {
+  await locator.waitFor({ state: "visible" });
+  const box = await locator.boundingBox();
+  if (!box) {
+    return;
+  }
+
+  const menu = await locator.evaluate((select, selectedValue) => {
+    const allOptions = Array.from(select.options).map((option, index) => ({
+      group: option.parentElement?.tagName === "OPTGROUP" ? option.parentElement.label : "",
+      index,
+      label: option.label || option.textContent || option.value,
+      selected: option.value === selectedValue,
+      value: option.value,
+    }));
+    const selectedIndex = Math.max(0, allOptions.findIndex((option) => option.selected));
+    const start = Math.max(0, Math.min(selectedIndex - 2, allOptions.length - 6));
+    const visibleOptions = allOptions.slice(start, start + 6);
+    const selectedOption = allOptions[selectedIndex] ?? visibleOptions[0];
+    return {
+      group: selectedOption?.group || "",
+      options: visibleOptions,
+      value: selectedValue,
+    };
+  }, value);
+
+  await page.evaluate(({ box: selectBox, menu: menuData }) => {
+    document.querySelector(".tour-select-menu-preview")?.remove();
+    const menuElement = document.createElement("div");
+    menuElement.className = "tour-select-menu-preview";
+    const width = Math.min(420, Math.max(320, selectBox.width));
+    const left = Math.min(window.innerWidth - width - 16, Math.max(16, selectBox.x));
+    const top = Math.min(window.innerHeight - 260, selectBox.y + selectBox.height + 6);
+    menuElement.style.left = `${left}px`;
+    menuElement.style.top = `${Math.max(16, top)}px`;
+    menuElement.style.width = `${width}px`;
+    if (menuData.group) {
+      const groupElement = document.createElement("div");
+      groupElement.className = "tour-select-menu-preview-group";
+      groupElement.textContent = menuData.group;
+      menuElement.append(groupElement);
+    }
+    for (const option of menuData.options) {
+      const optionElement = document.createElement("div");
+      optionElement.className = `tour-select-menu-preview-option${option.value === menuData.value ? " active" : ""}`;
+      optionElement.textContent = option.label;
+      menuElement.append(optionElement);
+    }
+    document.body.append(menuElement);
+  }, { box, menu });
+}
+
+async function hideSelectMenuPreview(page) {
+  await page.evaluate(() => {
+    document.querySelector(".tour-select-menu-preview")?.remove();
+  });
 }
 
 async function guidedClick(page, locator, options = {}) {
@@ -652,6 +968,42 @@ async function resolveChromePath() {
   }
 
   throw new Error("Could not find Chrome. Set CHROME_PATH to a Chromium-compatible browser executable.");
+}
+
+function normalizeTourKind(value) {
+  const normalized = String(value || "workflow").trim().toLowerCase();
+  if (["template", "template-editor", "studio"].includes(normalized)) {
+    return "template";
+  }
+  if (["workflow", "app", "main"].includes(normalized)) {
+    return "workflow";
+  }
+  throw new Error(`Unknown tour kind "${value}". Use "workflow" or "template".`);
+}
+
+function tourConfigForKind(kind) {
+  if (kind === "template") {
+    return {
+      posterFilename: "sporttech-template-editor-tour-poster.jpg",
+      tmpName: "template-editor-tour",
+      videoFilename: "sporttech-template-editor-tour.mp4",
+    };
+  }
+
+  return {
+    posterFilename: "sporttech-app-tour-poster.jpg",
+    tmpName: "app-tour",
+    videoFilename: "sporttech-app-tour.mp4",
+  };
+}
+
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, options);
+  const bodyText = await response.text();
+  if (!response.ok) {
+    throw new Error(`${url} failed with HTTP ${response.status}: ${bodyText}`);
+  }
+  return bodyText ? JSON.parse(bodyText) : {};
 }
 
 function wait(ms) {
