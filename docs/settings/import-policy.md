@@ -42,3 +42,5 @@ Use this only when the event's certificate rule requires combined qualification 
 When enabled, placements are recalculated after group merges.
 
 When disabled, athletes keep their imported or manually corrected place values.
+
+See [Behavior contracts](/docs/reference/behavior-contracts) for the shared import, identity, phase, scoring, and ranking policies used by the UI and PDF generation.

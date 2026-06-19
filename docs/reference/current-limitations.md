@@ -32,3 +32,5 @@ This page tracks important beta limitations for operators.
 ## Data
 
 Imported data, templates, and generated PDFs are local user data. Avoid sharing support bundles or generated files outside the intended event or beta support context.
+
+The detailed lifecycle, storage-limit, import, scoring, and template-fidelity behavior is documented in [Behavior contracts](/docs/reference/behavior-contracts).

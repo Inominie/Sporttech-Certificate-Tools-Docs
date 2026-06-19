@@ -15,6 +15,7 @@ Settings cover:
 
 - Live import behavior.
 - Review correction behavior.
+- Storage limits for generated output.
 - Print calibration defaults.
 - Certificate Studio access.
 - Beta diagnostics.
@@ -27,3 +28,5 @@ Most settings save automatically.
 Runtime paths show where the app stores active project data, generated PDFs, previews, saved group PDFs, reprints, templates, and imported data.
 
 Use these paths when an operator needs to find local outputs or review diagnostic files.
+
+See [Behavior contracts](/docs/reference/behavior-contracts) for the full active-project lifecycle and generated-output limit policy.

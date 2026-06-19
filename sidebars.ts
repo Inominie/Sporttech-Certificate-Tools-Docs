@@ -71,6 +71,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Reference',
       items: [
+        'reference/behavior-contracts',
         'reference/current-limitations',
         'reference/glossary',
       ],
