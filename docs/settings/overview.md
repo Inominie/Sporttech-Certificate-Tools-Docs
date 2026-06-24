@@ -13,6 +13,7 @@ Use **Settings** for controls that are not part of the normal event workflow.
 
 Settings cover:
 
+- Beta update checks.
 - Live import behavior.
 - Review correction behavior.
 - Storage limits for generated output.
@@ -22,6 +23,12 @@ Settings cover:
 - Runtime paths.
 
 Most settings save automatically.
+
+## Beta update checks
+
+The app checks whether the installed beta matches the public beta manifest. It does not download, install, restart, or replace the application.
+
+See [Checking for updates](./checking-for-updates.md) for the manual update process.
 
 ## Runtime paths
 

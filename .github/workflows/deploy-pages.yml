@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate update manifest
+        run: npm run validate:update-manifest
+
       - name: Type-check
         run: npm run typecheck
 
