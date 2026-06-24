@@ -58,6 +58,7 @@ const sidebars: SidebarsConfig = {
       label: 'Settings',
       items: [
         'settings/overview',
+        'settings/checking-for-updates',
         'settings/import-policy',
         'settings/support-bundles',
       ],

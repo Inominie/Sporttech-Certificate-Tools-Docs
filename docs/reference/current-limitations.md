@@ -9,7 +9,7 @@ This page tracks important beta limitations for operators.
 ## Distribution
 
 - Builds are unsigned.
-- No automatic updates are available yet.
+- The app can check for beta updates, but it does not download, install, restart, or replace itself.
 - macOS and Windows may show operating system trust warnings.
 
 ## Import
