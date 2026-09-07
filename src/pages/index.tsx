@@ -1,6 +1,7 @@
 import {useCallback, useState, type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import {translate} from '@docusaurus/Translate';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -19,44 +20,44 @@ type TourCue = {
 const workflowTourCues: TourCue[] = [
   {
     start: 0,
-    label: 'Event',
-    title: 'Choose an online Sporttech event',
-    text: 'Search Sporttech Explore, filter the event list, and import the live competition data into the app.',
+    label: translate({id: 'homepage.workflow.event.label', message: 'Event'}),
+    title: translate({id: 'homepage.workflow.event.title', message: 'Choose an online Sporttech event'}),
+    text: translate({id: 'homepage.workflow.event.text', message: 'Search Sporttech Explore, filter the event list, and import the live competition data into the app.'}),
     to: '/docs/event/online-event',
   },
   {
     start: 25,
-    label: 'Quick Check',
-    title: 'Review imported event readiness',
-    text: 'After import, Quick Check groups the Sporttech event data into classes and highlights what should be checked before printing.',
+    label: translate({id: 'homepage.workflow.check.label', message: 'Quick Check'}),
+    title: translate({id: 'homepage.workflow.check.title', message: 'Review imported event readiness'}),
+    text: translate({id: 'homepage.workflow.check.text', message: 'After import, Quick Check groups the Sporttech event data into classes and highlights what should be checked before printing.'}),
     to: '/docs/quick-check/overview',
   },
   {
     start: 39,
-    label: 'Class data',
-    title: 'Browse classes and result rows',
-    text: 'Open a class, scroll through its rows, and inspect the imported team, score, rank, and qualification data.',
+    label: translate({id: 'homepage.workflow.classes.label', message: 'Class data'}),
+    title: translate({id: 'homepage.workflow.classes.title', message: 'Browse classes and result rows'}),
+    text: translate({id: 'homepage.workflow.classes.text', message: 'Open a class, scroll through its rows, and inspect the imported team, score, rank, and qualification data.'}),
     to: '/docs/quick-check/groups-and-finals',
   },
   {
     start: 56,
-    label: 'Details',
-    title: 'Inspect team details and source data',
-    text: 'Use the details drawer to switch between summary and team information without leaving the Quick Check review.',
+    label: translate({id: 'homepage.workflow.details.label', message: 'Details'}),
+    title: translate({id: 'homepage.workflow.details.title', message: 'Inspect team details and source data'}),
+    text: translate({id: 'homepage.workflow.details.text', message: 'Use the details drawer to switch between summary and team information without leaving the Quick Check review.'}),
     to: '/docs/quick-check/corrections',
   },
   {
     start: 77,
-    label: 'Produce',
-    title: 'Select a certificate for preview',
-    text: 'Move to Produce, select a class entry, and let the app render the matching certificate PDF preview.',
+    label: translate({id: 'homepage.workflow.produce.label', message: 'Produce'}),
+    title: translate({id: 'homepage.workflow.produce.title', message: 'Select a certificate for preview'}),
+    text: translate({id: 'homepage.workflow.produce.text', message: 'Move to Produce, select a class entry, and let the app render the matching certificate PDF preview.'}),
     to: '/docs/produce/certificates',
   },
   {
     start: 94,
-    label: 'Lists',
-    title: 'Switch between list outputs',
-    text: 'Use the same imported data to preview starter lists and result lists for the selected class.',
+    label: translate({id: 'homepage.workflow.lists.label', message: 'Lists'}),
+    title: translate({id: 'homepage.workflow.lists.title', message: 'Switch between list outputs'}),
+    text: translate({id: 'homepage.workflow.lists.text', message: 'Use the same imported data to preview starter lists and result lists for the selected class.'}),
     to: '/docs/produce/class-lists',
   },
 ];
@@ -64,58 +65,58 @@ const workflowTourCues: TourCue[] = [
 const templateEditorTourCues: TourCue[] = [
   {
     start: 0,
-    label: 'Studio',
-    title: 'Open Certificate Studio from the app',
-    text: 'Start from the loaded competition workspace and move into Certificate Studio without leaving the operator flow.',
+    label: translate({id: 'homepage.studio.open.label', message: 'Studio'}),
+    title: translate({id: 'homepage.studio.open.title', message: 'Open Certificate Studio from the app'}),
+    text: translate({id: 'homepage.studio.open.text', message: 'Start from the loaded competition workspace and move into Certificate Studio without leaving the operator flow.'}),
     to: '/docs/certificate-studio/overview',
   },
   {
     start: 7,
-    label: 'Single',
-    title: 'Use Single for individual athletes',
-    text: 'Single templates focus on one athlete with their name, club, class, score, and placement fields.',
+    label: translate({id: 'homepage.studio.single.label', message: 'Single'}),
+    title: translate({id: 'homepage.studio.single.title', message: 'Use Single for individual athletes'}),
+    text: translate({id: 'homepage.studio.single.text', message: 'Single templates focus on one athlete with their name, club, class, score, and placement fields.'}),
     to: '/docs/certificate-studio/template-library',
   },
   {
     start: 13,
-    label: 'Team',
-    title: 'Use Team for team certificates',
-    text: 'Team templates add team-specific data such as team name, club, member names, member count, totals, and place.',
+    label: translate({id: 'homepage.studio.team.label', message: 'Team'}),
+    title: translate({id: 'homepage.studio.team.title', message: 'Use Team for team certificates'}),
+    text: translate({id: 'homepage.studio.team.text', message: 'Team templates add team-specific data such as team name, club, member names, member count, totals, and place.'}),
     to: '/docs/certificate-studio/template-library',
   },
   {
     start: 20,
-    label: 'Syncro',
-    title: 'Use Syncro for synchronized entries',
-    text: 'Synchronized templates are built for two athletes, shared club data, class details, phase, total, and placement.',
+    label: translate({id: 'homepage.studio.syncro.label', message: 'Syncro'}),
+    title: translate({id: 'homepage.studio.syncro.title', message: 'Use Syncro for synchronized entries'}),
+    text: translate({id: 'homepage.studio.syncro.text', message: 'Synchronized templates are built for two athletes, shared club data, class details, phase, total, and placement.'}),
     to: '/docs/certificate-studio/template-library',
   },
   {
     start: 31,
-    label: 'Fixed Text',
-    title: 'Add reusable fixed text',
-    text: 'Create a fixed text item and use the inspector geometry controls to place it cleanly at the top of the certificate.',
+    label: translate({id: 'homepage.studio.fixedText.label', message: 'Fixed Text'}),
+    title: translate({id: 'homepage.studio.fixedText.title', message: 'Add reusable fixed text'}),
+    text: translate({id: 'homepage.studio.fixedText.text', message: 'Create a fixed text item and use the inspector geometry controls to place it cleanly at the top of the certificate.'}),
     to: '/docs/certificate-studio/layout-controls',
   },
   {
     start: 43,
-    label: 'Variables',
-    title: 'Add a placeholder from event data',
-    text: 'Choose a placeholder in the top bar, add it to the layout, then use the Inspector dropdown with sample values to remap it.',
+    label: translate({id: 'homepage.studio.variables.label', message: 'Variables'}),
+    title: translate({id: 'homepage.studio.variables.title', message: 'Add a placeholder from event data'}),
+    text: translate({id: 'homepage.studio.variables.text', message: 'Choose a placeholder in the top bar, add it to the layout, then use the Inspector dropdown with sample values to remap it.'}),
     to: '/docs/certificate-studio/placeholders',
   },
   {
     start: 68,
-    label: 'Real Data',
-    title: 'Turn on real-data preview',
-    text: 'Switch from placeholder labels to live competition values so the layout can be checked against imported event data.',
+    label: translate({id: 'homepage.studio.realData.label', message: 'Real Data'}),
+    title: translate({id: 'homepage.studio.realData.title', message: 'Turn on real-data preview'}),
+    text: translate({id: 'homepage.studio.realData.text', message: 'Switch from placeholder labels to live competition values so the layout can be checked against imported event data.'}),
     to: '/docs/certificate-studio/placeholders',
   },
   {
     start: 73,
-    label: 'Use',
-    title: 'Save and use the profile',
-    text: 'Save the edited profile, then send it back into the competition app for certificate production.',
+    label: translate({id: 'homepage.studio.use.label', message: 'Use'}),
+    title: translate({id: 'homepage.studio.use.title', message: 'Save and use the profile'}),
+    text: translate({id: 'homepage.studio.use.text', message: 'Save the edited profile, then send it back into the competition app for certificate production.'}),
     to: '/docs/produce/certificates',
   },
 ];
@@ -138,13 +139,13 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">{translate({id: 'homepage.tagline', message: 'User documentation for importing results, checking Sporttech event data, and producing PDFs.'})}</p>
         <div className={styles.buttons}>
           <Link className="button button--secondary button--lg" to="/docs/intro">
-            Open the documentation
+            {translate({id: 'homepage.openDocs', message: 'Open the documentation'})}
           </Link>
           <Link className="button button--outline button--secondary button--lg" to="/docs/getting-started/basic-workflow">
-            View the workflow
+            {translate({id: 'homepage.viewWorkflow', message: 'View the workflow'})}
           </Link>
         </div>
       </div>
@@ -185,20 +186,20 @@ function CardIcon({type}: {type: 'event' | 'check' | 'produce'}): ReactNode {
 function WorkflowCards(): ReactNode {
   const cards = [
     {
-      title: 'Load results',
-      text: 'Import online Sporttech events, local OVS data, or Sporttech Excel exports.',
+      title: translate({id: 'homepage.cards.import.title', message: 'Load results'}),
+      text: translate({id: 'homepage.cards.import.text', message: 'Import online Sporttech events, local OVS data, or Sporttech Excel exports.'}),
       to: '/docs/event/import-overview',
       icon: 'event' as const,
     },
     {
-      title: 'Check event data',
-      text: 'Review imported classes, warnings, finals, manual corrections, and removed entries.',
+      title: translate({id: 'homepage.cards.check.title', message: 'Check event data'}),
+      text: translate({id: 'homepage.cards.check.text', message: 'Review imported classes, warnings, finals, manual corrections, and removed entries.'}),
       to: '/docs/quick-check/overview',
       icon: 'check' as const,
     },
     {
-      title: 'Produce PDFs',
-      text: 'Preview, save, print, and open certificate PDFs or class lists.',
+      title: translate({id: 'homepage.cards.produce.title', message: 'Produce PDFs'}),
+      text: translate({id: 'homepage.cards.produce.text', message: 'Preview, save, print, and open certificate PDFs or class lists.'}),
       to: '/docs/produce/overview',
       icon: 'produce' as const,
     },
@@ -208,10 +209,9 @@ function WorkflowCards(): ReactNode {
     <section className={styles.workflowSection}>
       <div className="container">
         <div className={styles.sectionHeading}>
-          <Heading as="h2">Follow the app workflow</Heading>
+          <Heading as="h2">{translate({id: 'homepage.workflowHeading', message: 'Follow the app workflow'})}</Heading>
           <p>
-            The docs are organized around the main app sections: Event, Quick Check,
-            Produce, Settings, and Certificate Studio.
+            {translate({id: 'homepage.workflowDescription', message: 'The docs are organized around the main app sections: Event, Quick Check, Produce, Settings, and Certificate Studio.'})}
           </p>
         </div>
         <div className={styles.cardGrid}>
@@ -267,7 +267,7 @@ function GuidedVideoTour({
               {activeCue.title}
             </Heading>
             <p className={styles.tourDescription}>{activeCue.text}</p>
-            <div className={styles.tourMeta} aria-label={`Video step ${activeCueIndex + 1} of ${cues.length}: ${activeCue.label}`}>
+            <div className={styles.tourMeta} aria-label={translate({id: 'homepage.tourStep', message: 'Video step {step} of {total}: {label}'}, {step: activeCueIndex + 1, total: cues.length, label: activeCue.label})}>
               <span>{activeCue.label}</span>
               <span>{activeCueIndex + 1} / {cues.length}</span>
             </div>
@@ -280,7 +280,7 @@ function GuidedVideoTour({
               ))}
             </div>
             <Link className="button button--primary" to={activeCue.to}>
-              Open related guide
+              {translate({id: 'homepage.relatedGuide', message: 'Open related guide'})}
             </Link>
           </div>
           <div className={styles.previewFrame}>
@@ -315,16 +315,16 @@ function ScreenshotPreview(): ReactNode {
   return (
     <>
       <GuidedVideoTour
-        ariaLabel="Guided tour of importing a live Sporttech event, checking event data, and producing PDFs"
+        ariaLabel={translate({id: 'homepage.workflowTour.ariaLabel', message: 'Guided tour of importing a live Sporttech event, checking event data, and producing PDFs'})}
         cues={workflowTourCues}
-        eyebrow="Guided workflow"
+        eyebrow={translate({id: 'homepage.workflowTour.eyebrow', message: 'Guided workflow'})}
         posterPath="/img/app/sporttech-app-tour-poster.jpg"
         videoPath="/video/sporttech-app-tour.mp4"
       />
       <GuidedVideoTour
-        ariaLabel="Guided tour of opening Certificate Studio, choosing starter templates, editing placeholders, and saving a profile"
+        ariaLabel={translate({id: 'homepage.studioTour.ariaLabel', message: 'Guided tour of opening Certificate Studio, choosing starter templates, editing placeholders, and saving a profile'})}
         cues={templateEditorTourCues}
-        eyebrow="Template Editor"
+        eyebrow={translate({id: 'homepage.studioTour.eyebrow', message: 'Template Editor'})}
         posterPath="/img/app/sporttech-template-editor-tour-poster.jpg"
         videoPath="/video/sporttech-template-editor-tour.mp4"
       />
@@ -335,7 +335,7 @@ function ScreenshotPreview(): ReactNode {
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout title={siteConfig.title} description="User documentation for Sporttech Certificate Tools.">
+    <Layout title={siteConfig.title} description={translate({id: 'homepage.description', message: 'User documentation for Sporttech Certificate Tools.'})}>
       <HomepageHeader />
       <main>
         <WorkflowCards />

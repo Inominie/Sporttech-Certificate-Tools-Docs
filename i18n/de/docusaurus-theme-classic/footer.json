@@ -1,0 +1,39 @@
+{
+  "link.title.Docs": {
+    "message": "Dokumentation"
+  },
+  "link.title.Workflow": {
+    "message": "Arbeitsablauf"
+  },
+  "link.title.More": {
+    "message": "Weitere Informationen"
+  },
+  "link.item.label.Start here": {
+    "message": "Hier beginnen"
+  },
+  "link.item.label.Basic workflow": {
+    "message": "Grundlegender Arbeitsablauf"
+  },
+  "link.item.label.Troubleshooting": {
+    "message": "Fehlerbehebung"
+  },
+  "link.item.label.Event": {
+    "message": "Wettkampf"
+  },
+  "link.item.label.Quick Check": {
+    "message": "Datenprüfung"
+  },
+  "link.item.label.Produce": {
+    "message": "Ausgabe"
+  },
+  "link.item.label.Reference": {
+    "message": "Referenz"
+  },
+  "link.item.label.Docs repository": {
+    "message": "Dokumentations-Repository"
+  },
+  "copyright": {
+    "message": "Copyright © Mitwirkende von Sporttech Certificate Tools. Erstellt mit Docusaurus.",
+    "description": "Year omitted intentionally: JSON translations cannot evaluate the dynamic year in the English configuration."
+  }
+}

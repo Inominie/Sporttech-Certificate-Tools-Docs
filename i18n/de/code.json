@@ -1,0 +1,182 @@
+{
+  "homepage.workflow.event.label": {
+    "message": "Wettkampf"
+  },
+  "homepage.workflow.event.title": {
+    "message": "Einen Sporttech-Online-Wettkampf auswählen"
+  },
+  "homepage.workflow.event.text": {
+    "message": "Durchsuche Sporttech Explore, filtere die Wettkampfliste und importiere die Live-Wettkampfdaten in die App."
+  },
+  "homepage.workflow.check.label": {
+    "message": "Datenprüfung"
+  },
+  "homepage.workflow.check.title": {
+    "message": "Importierte Wettkampfdaten auf Ausgabebereitschaft prüfen"
+  },
+  "homepage.workflow.check.text": {
+    "message": "Nach dem Import gruppiert Quick Check die Sporttech-Wettkampfdaten nach Klassen und zeigt, was du vor dem Druck prüfen solltest."
+  },
+  "homepage.workflow.classes.label": {
+    "message": "Klassendaten"
+  },
+  "homepage.workflow.classes.title": {
+    "message": "Wettkampfklassen und Ergebniszeilen durchsehen"
+  },
+  "homepage.workflow.classes.text": {
+    "message": "Öffne eine Wettkampfklasse, gehe ihre Einträge durch und prüfe die importierten Team-, Punkte-, Platzierungs- und Vorkampfdaten."
+  },
+  "homepage.workflow.details.label": {
+    "message": "Details"
+  },
+  "homepage.workflow.details.title": {
+    "message": "Teamdetails und Quelldaten prüfen"
+  },
+  "homepage.workflow.details.text": {
+    "message": "Wechsle in der Detailansicht zwischen Zusammenfassung und Teaminformationen, ohne die Prüfung in Quick Check zu verlassen."
+  },
+  "homepage.workflow.produce.label": {
+    "message": "Ausgabe"
+  },
+  "homepage.workflow.produce.title": {
+    "message": "Eine Urkunde für die Vorschau auswählen"
+  },
+  "homepage.workflow.produce.text": {
+    "message": "Wechsle zu Produce, wähle einen Klasseneintrag und lasse die passende PDF-Vorschau der Urkunde erzeugen."
+  },
+  "homepage.workflow.lists.label": {
+    "message": "Listen"
+  },
+  "homepage.workflow.lists.title": {
+    "message": "Zwischen Listenausgaben wechseln"
+  },
+  "homepage.workflow.lists.text": {
+    "message": "Nutze dieselben importierten Daten für eine Vorschau der Start- und Ergebnislisten der ausgewählten Klasse."
+  },
+  "homepage.studio.open.label": {
+    "message": "Urkundenstudio"
+  },
+  "homepage.studio.open.title": {
+    "message": "Certificate Studio aus der App öffnen"
+  },
+  "homepage.studio.open.text": {
+    "message": "Wechsle aus dem geladenen Wettkampf direkt zu Certificate Studio, ohne den Arbeitsablauf zu unterbrechen."
+  },
+  "homepage.studio.single.label": {
+    "message": "Einzel"
+  },
+  "homepage.studio.single.title": {
+    "message": "Single für Einzelurkunden verwenden"
+  },
+  "homepage.studio.single.text": {
+    "message": "Single-Vorlagen sind auf eine einzelne Person zugeschnitten und enthalten Felder für Name, Verein, Wettkampfklasse, Punktzahl und Platzierung."
+  },
+  "homepage.studio.team.label": {
+    "message": "Mannschaft"
+  },
+  "homepage.studio.team.title": {
+    "message": "Team für Mannschaftsurkunden verwenden"
+  },
+  "homepage.studio.team.text": {
+    "message": "Team-Vorlagen ergänzen Mannschaftsdaten wie Teamname, Verein, Namen und Anzahl der Mitglieder, Gesamtpunktzahlen und Platzierung."
+  },
+  "homepage.studio.syncro.label": {
+    "message": "Synchron"
+  },
+  "homepage.studio.syncro.title": {
+    "message": "Syncro für Synchronpaare verwenden"
+  },
+  "homepage.studio.syncro.text": {
+    "message": "Synchronvorlagen sind für zwei Personen, gemeinsame Vereinsdaten, Klassenangaben, Wettkampfphase, Gesamtpunktzahl und Platzierung ausgelegt."
+  },
+  "homepage.studio.fixedText.label": {
+    "message": "Fester Text"
+  },
+  "homepage.studio.fixedText.title": {
+    "message": "Wiederverwendbaren festen Text hinzufügen"
+  },
+  "homepage.studio.fixedText.text": {
+    "message": "Erstelle ein festes Textelement und positioniere es mit den Geometrie-Einstellungen des Inspektors präzise am oberen Rand der Urkunde."
+  },
+  "homepage.studio.variables.label": {
+    "message": "Platzhalter"
+  },
+  "homepage.studio.variables.title": {
+    "message": "Einen Platzhalter aus Wettkampfdaten hinzufügen"
+  },
+  "homepage.studio.variables.text": {
+    "message": "Wähle in der oberen Leiste einen Platzhalter und füge ihn zum Layout hinzu. Über das Auswahlmenü mit Beispielwerten im Inspektor kannst du seine Zuordnung ändern."
+  },
+  "homepage.studio.realData.label": {
+    "message": "Echte Daten"
+  },
+  "homepage.studio.realData.title": {
+    "message": "Vorschau mit echten Daten einschalten"
+  },
+  "homepage.studio.realData.text": {
+    "message": "Wechsle von Platzhalterbezeichnungen zu tatsächlichen Wettkampfwerten, um das Layout anhand der importierten Daten zu prüfen."
+  },
+  "homepage.studio.use.label": {
+    "message": "Verwenden"
+  },
+  "homepage.studio.use.title": {
+    "message": "Das Profil speichern und verwenden"
+  },
+  "homepage.studio.use.text": {
+    "message": "Speichere das bearbeitete Profil und übernimm es anschließend für die Urkundenerstellung in die Wettkampf-App."
+  },
+  "homepage.cards.import.title": {
+    "message": "Ergebnisse laden"
+  },
+  "homepage.cards.import.text": {
+    "message": "Importiere Sporttech-Online-Wettkämpfe, lokale OVS-Daten oder Sporttech-Excel-Exporte."
+  },
+  "homepage.cards.check.title": {
+    "message": "Wettkampfdaten prüfen"
+  },
+  "homepage.cards.check.text": {
+    "message": "Prüfe importierte Wettkampfklassen, Warnungen, Finalergebnisse, manuelle Korrekturen und ausgeschlossene Einträge."
+  },
+  "homepage.cards.produce.title": {
+    "message": "PDFs erstellen"
+  },
+  "homepage.cards.produce.text": {
+    "message": "Erstelle Vorschauen von Urkunden oder Klassenlisten und speichere, drucke oder öffne die PDFs."
+  },
+  "homepage.openDocs": {
+    "message": "Dokumentation öffnen"
+  },
+  "homepage.viewWorkflow": {
+    "message": "Arbeitsablauf ansehen"
+  },
+  "homepage.workflowHeading": {
+    "message": "Dem Arbeitsablauf der App folgen"
+  },
+  "homepage.relatedGuide": {
+    "message": "Passende Anleitung öffnen"
+  },
+  "homepage.workflowDescription": {
+    "message": "Die Dokumentation orientiert sich an den Hauptbereichen der App: Event, Quick Check, Produce, Settings und Certificate Studio."
+  },
+  "homepage.tagline": {
+    "message": "Benutzerhandbuch zum Importieren von Ergebnissen, Prüfen von Sporttech-Wettkampfdaten und Erstellen von PDFs."
+  },
+  "homepage.workflowTour.ariaLabel": {
+    "message": "Geführte Tour zum Import eines Sporttech-Live-Wettkampfs, zur Prüfung der Wettkampfdaten und zur PDF-Erstellung"
+  },
+  "homepage.studioTour.ariaLabel": {
+    "message": "Geführte Tour zum Öffnen von Certificate Studio, Auswählen von Startvorlagen, Bearbeiten von Platzhaltern und Speichern eines Profils"
+  },
+  "homepage.workflowTour.eyebrow": {
+    "message": "Arbeitsablauf im Überblick"
+  },
+  "homepage.studioTour.eyebrow": {
+    "message": "Vorlageneditor"
+  },
+  "homepage.description": {
+    "message": "Benutzerhandbuch für Sporttech Certificate Tools."
+  },
+  "homepage.tourStep": {
+    "message": "Videoschritt {step} von {total}: {label}"
+  }
+}
