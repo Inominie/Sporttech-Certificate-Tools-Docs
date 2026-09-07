@@ -21,7 +21,11 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'de'],
+    localeConfigs: {
+      en: {label: 'English', htmlLang: 'en'},
+      de: {label: 'Deutsch', htmlLang: 'de'},
+    },
   },
 
   presets: [
@@ -30,6 +34,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editLocalizedFiles: true,
           editUrl: 'https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/tree/main/',
         },
         blog: false,
@@ -57,6 +62,10 @@ const config: Config = {
           sidebarId: 'userGuide',
           position: 'left',
           label: 'User Guide',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/Inominie/Sporttech-Certificate-Tools-Docs',

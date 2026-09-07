@@ -1,0 +1,29 @@
+{
+  "version.label": {
+    "message": "Aktuell"
+  },
+  "sidebar.userGuide.category.Getting Started": {
+    "message": "Erste Schritte"
+  },
+  "sidebar.userGuide.category.Event": {
+    "message": "Wettkampf (Event)"
+  },
+  "sidebar.userGuide.category.Quick Check": {
+    "message": "Datenprüfung (Quick Check)"
+  },
+  "sidebar.userGuide.category.Certificate Studio": {
+    "message": "Urkundenstudio"
+  },
+  "sidebar.userGuide.category.Produce": {
+    "message": "Ausgabe (Produce)"
+  },
+  "sidebar.userGuide.category.Settings": {
+    "message": "Einstellungen"
+  },
+  "sidebar.userGuide.category.Troubleshooting": {
+    "message": "Fehlerbehebung"
+  },
+  "sidebar.userGuide.category.Reference": {
+    "message": "Referenz"
+  }
+}

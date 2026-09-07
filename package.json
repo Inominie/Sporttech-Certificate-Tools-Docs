@@ -16,7 +16,12 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "validate:update-manifest": "node scripts/validate-update-manifest.mjs"
+    "validate:update-manifest": "node scripts/validate-update-manifest.mjs",
+    "prebuild": "npm run validate:i18n",
+    "start:de": "docusaurus start --locale de",
+    "validate:i18n": "node scripts/validate-i18n.mjs",
+    "validate:i18n-build": "node scripts/validate-i18n-build.mjs",
+    "test:i18n": "node --test scripts/validate-i18n.test.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",
