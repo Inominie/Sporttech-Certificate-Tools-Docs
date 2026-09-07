@@ -1,4 +1,5 @@
 ---
+title: "Klassenlisten"
 sidebar_position: 3
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: "Beta installieren"
 sidebar_position: 1
 ---
 

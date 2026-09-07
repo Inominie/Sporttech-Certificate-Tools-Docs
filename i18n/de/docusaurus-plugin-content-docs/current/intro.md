@@ -1,4 +1,5 @@
 ---
+title: "Sporttech Certificate Tools"
 sidebar_position: 1
 slug: /intro
 ---

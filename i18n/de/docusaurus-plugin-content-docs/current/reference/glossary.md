@@ -1,4 +1,5 @@
 ---
+title: "Glossar"
 sidebar_position: 2
 ---
 

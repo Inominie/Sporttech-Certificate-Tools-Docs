@@ -1,4 +1,5 @@
 ---
+title: "Vorlagenbibliothek"
 sidebar_position: 2
 ---
 

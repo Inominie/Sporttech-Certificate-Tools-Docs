@@ -51,7 +51,7 @@ npm run serve
 | Sidebar categories | `sidebars.ts` | `i18n/de/docusaurus-plugin-content-docs/current.json` |
 | Navigation and footer | `docusaurus.config.ts` | `i18n/de/docusaurus-theme-classic/` |
 
-When adding or editing a page, update both languages. Keep matching relative file paths, document IDs, slugs, and explicit heading anchors. Write anchors as MDX comments such as `## Heading {/* #stable-id */}`; the site's `future.v4` configuration does not accept legacy `{#stable-id}` syntax. Use relative Markdown links between translated pages so navigation stays in the selected language. Do not translate API identifiers, placeholder keys, code samples, file extensions, or source-data enum values.
+When adding or editing a page, update both languages. Keep matching relative file paths, document IDs, slugs, and explicit heading anchors. Write anchors as MDX comments such as `## Heading {/* #stable-id */}`; the site's `future.v4` configuration does not accept legacy `{#stable-id}` syntax. Set an explicit translated `title` in front matter so heading comments do not appear in page titles, sidebar labels, or breadcrumbs. Use relative Markdown links between translated pages so navigation stays in the selected language. Do not translate API identifiers, placeholder keys, code samples, file extensions, or source-data enum values.
 
 New homepage messages must use a literal, stable `id` and an English default `message` in `translate()`. Translation files can be updated with:
 

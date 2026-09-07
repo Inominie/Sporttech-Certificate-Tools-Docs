@@ -1,4 +1,5 @@
 ---
+title: "Gruppen und Finalergebnisse"
 sidebar_position: 3
 ---
 

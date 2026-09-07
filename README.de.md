@@ -53,7 +53,7 @@ npm run serve
 | Kategorien der Seitenleiste | `sidebars.ts` | `i18n/de/docusaurus-plugin-content-docs/current.json` |
 | Navigation und Fußzeile | `docusaurus.config.ts` | `i18n/de/docusaurus-theme-classic/` |
 
-Aktualisiere bei neuen oder geänderten Seiten beide Sprachen. Behalte übereinstimmende relative Dateipfade, Dokument-IDs, Slugs und explizite Abschnittsanker bei. Schreibe Anker als MDX-Kommentare wie `## Überschrift {/* #stable-id */}`; die Konfiguration `future.v4` unterstützt die alte Syntax `{#stable-id}` nicht. Verwende zwischen übersetzten Seiten relative Markdown-Links, damit die Navigation in der ausgewählten Sprache bleibt. Übersetze keine API-Bezeichner, Platzhalterschlüssel, Codebeispiele, Dateiendungen oder technischen Aufzählungswerte aus den Quelldaten.
+Aktualisiere bei neuen oder geänderten Seiten beide Sprachen. Behalte übereinstimmende relative Dateipfade, Dokument-IDs, Slugs und explizite Abschnittsanker bei. Schreibe Anker als MDX-Kommentare wie `## Überschrift {/* #stable-id */}`; die Konfiguration `future.v4` unterstützt die alte Syntax `{#stable-id}` nicht. Setze im Frontmatter einen ausdrücklichen übersetzten `title`, damit Überschriftenkommentare nicht in Seitentiteln, Seitenleisten oder der Brotkrumennavigation erscheinen. Verwende zwischen übersetzten Seiten relative Markdown-Links, damit die Navigation in der ausgewählten Sprache bleibt. Übersetze keine API-Bezeichner, Platzhalterschlüssel, Codebeispiele, Dateiendungen oder technischen Aufzählungswerte aus den Quelldaten.
 
 Neue Startseitentexte benötigen in `translate()` eine feste, stabile `id` und einen englischen Standardtext als `message`. Aktualisiere die Übersetzungsdateien mit:
 

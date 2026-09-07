@@ -141,6 +141,13 @@ test('build validator rejects the wrong document language', (t) => {
   assert.throws(() => validateI18nBuild(root), /wrong or missing HTML language/);
 });
 
+test('build validator rejects heading ID markup in page titles', (t) => {
+  const root = fixture(t);
+  fakeBuild(root);
+  edit(root, 'build/de/docs/intro/index.html', (text) => text.replace('<body>', '<head><title>Einführung {/* #intro */}</title></head><body>'));
+  assert.throws(() => validateI18nBuild(root), /heading ID markup leaked into the page title/);
+});
+
 test('build validator rejects missing shared media', (t) => {
   const root = fixture(t);
   fakeBuild(root);

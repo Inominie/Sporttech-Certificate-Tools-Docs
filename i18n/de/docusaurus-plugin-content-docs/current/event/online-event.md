@@ -1,4 +1,5 @@
 ---
+title: "Sporttech-Online-Wettkämpfe"
 sidebar_position: 2
 ---
 

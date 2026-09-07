@@ -40,6 +40,10 @@ export function validateI18nBuild(root = siteDir) {
       if (!path) { errors.push(`Missing ${locale} output: ${relativeRoute || '/'}`); continue; }
       pages += 1;
       const html = readFileSync(path, 'utf8');
+      const title = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '';
+      if (/\{\/\*\s*#[^}]+\*\/\}/.test(title)) {
+        errors.push(`${relativeRoute || '/'}: heading ID markup leaked into the page title; set an explicit localized front-matter title.`);
+      }
       if (attributeValue(html.match(/<html\b[^>]*>/i)?.[0] ?? '', 'lang') !== locale) {
         errors.push(`${relativeRoute || '/'}: wrong or missing HTML language.`);
       }

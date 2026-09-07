@@ -1,4 +1,5 @@
 ---
+title: "Automatische Aktualisierung"
 sidebar_position: 5
 ---
 

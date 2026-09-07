@@ -1,4 +1,5 @@
 ---
+title: "Nach Updates suchen"
 sidebar_position: 2
 ---
 
