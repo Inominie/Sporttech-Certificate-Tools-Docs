@@ -3,10 +3,10 @@
   "product": "sporttech-certificate-tools",
   "channel": "beta",
   "latest": {
-    "version": "0.5.0",
+    "version": "0.6.0",
     "buildNumber": 1,
-    "buildId": "1789502202319",
-    "publishedAt": "2026-09-15T19:56:42.369Z",
-    "commit": "87e94c21c4a71012cbbf3889c841032f32e5ffb2"
+    "buildId": "1790371027705",
+    "publishedAt": "2026-09-25T21:17:07.765Z",
+    "commit": "98045bf642bf07cb243631f4d09812fe5c916c54"
   }
 }
