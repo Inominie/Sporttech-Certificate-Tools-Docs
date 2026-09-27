@@ -38,8 +38,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'certificate-studio/overview',
         'certificate-studio/template-library',
+        'certificate-studio/design-samples',
         'certificate-studio/placeholders',
+        'certificate-studio/preview-data',
         'certificate-studio/layout-controls',
+        'certificate-studio/layout-boxes',
+        'certificate-studio/preprinted-paper',
+        'certificate-studio/sharing-templates',
       ],
     },
     {

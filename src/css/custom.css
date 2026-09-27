@@ -112,12 +112,14 @@
 }
 
 .theme-doc-markdown table {
-  display: table;
+  display: block;
+  max-width: 100%;
   width: 100%;
+  overflow-x: auto;
 }
 
 .theme-doc-markdown th {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .theme-doc-sidebar-menu .menu__link {

@@ -4,32 +4,35 @@ sidebar_position: 1
 
 # Produce overview
 
-Use **Produce** to generate document previews and saved PDFs.
+Produce turns the reviewed event data into PDFs. Select the class or entries, choose the output settings and inspect the preview before saving or printing.
 
 <figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/produce-preview.png" alt="Produce screen showing certificate document options and a generated PDF preview" />
-  <figcaption>Produce shows document type, scope, template, preview status, and the generated PDF in one operator view.</figcaption>
+  <img src="/Sporttech-Certificate-Tools-Docs/img/app/produce-preview.png" alt="Produce page showing print controls and a certificate PDF" />
+  <figcaption>Output settings and preview remain together on the Produce page.</figcaption>
 </figure>
 
 ## Document types
 
-Produce supports:
+- **Certificates** use a Studio template matching the entry category.
+- **Start Lists** provide a class participation list.
+- **Result Lists** show source results for the selected phase.
 
-- **Certificates** for athletes, synchronized pairs, or teams.
-- **Class Lists** for printable result or start list style documents.
+[Certificate copies and order](certificates.md) are certificate settings; they do not duplicate start-list or result-list rows.
 
 ## Production readiness
 
-The Produce screen shows readiness, active template, warning count, selected document type, selected scope, and approximate page count.
+Check the selected scope, warnings and template before output. Missing template mappings, unresolved copy counts or overflowing layout boxes must be corrected first. Sporttech supplies scores, placements and groups; resolve incorrect results there, then refresh.
 
-Resolve warnings before final printing when they affect certificate content or layout.
+Changing the selection or output settings regenerates the preview. Wait for the current PDF; do not use an earlier preview as evidence that new settings are correct.
 
 ## Main actions
 
 | Action | Purpose |
 | --- | --- |
-| **Preview PDF** | Render a temporary preview for the selected scope. |
-| **Save PDF** | Save the current preview to the output folder. |
-| **Print** | Print the saved preview through the operating system print flow. |
-| **Open PDF** | Open the saved PDF. |
-| **Open Folder** | Open the output folder. |
+| Preview PDF | Generate/check the current output. |
+| Save PDF | Keep the generated PDF as a saved output. |
+| Print | Send the current preview to the print workflow; saving first is optional. |
+| Open PDF | Open the generated file externally. |
+| Open Folder | Open the output folder. |
+
+A successfully submitted print job also retains its PDF. Merely previewing or opening a temporary PDF does not make it persistent. See [preview, save and print](preview-save-print.md).

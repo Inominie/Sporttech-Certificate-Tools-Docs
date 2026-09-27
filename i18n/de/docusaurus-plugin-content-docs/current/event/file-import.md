@@ -5,29 +5,20 @@ sidebar_position: 4
 
 # Dateiimport {/* #file-import */}
 
-Nutze **File Import**, wenn keine Live-Daten verfügbar sind oder du eine exportierte Datei aus dem Wettkampfsystem erhältst.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/event-import.png" alt="Registerkarte File Import im Bereich Event mit einem geladenen Sporttech-Excel-Export" />
-  <figcaption>Nach einem Dateiimport bestätigt die Statusleiste Quelldatei, Quellentyp, erkannte Wettkampfklassen, Anzahl der Warnungen und ausgewählte Vorlage.</figcaption>
-</figure>
-
 ## Unterstützter Dateityp {/* #supported-file-type */}
 
-Die aktuelle Beta unterstützt Sporttech-Excel-Exporte.
+Verwenden Sie einen Sporttech-Excel-Export im Format `.xlsx`. Eine PDF-Ergebnisliste oder eine OVS-Datei `event.j3` ist kein Event-Datenimport. PDF- und Word-Dateien können stattdessen als [Gestaltungsmuster im Studio](../certificate-studio/design-samples.md) dienen.
 
-Ein direkter Import von `event.j3` ist geplant, aber noch nicht umgesetzt.
+## Datei importieren {/* #import-a-file */}
 
-## Eine Datei importieren {/* #import-a-file */}
+1. Öffnen Sie **Event → Dateiimport**.
+2. Wählen Sie **Neue Veranstaltung aus Datei laden** und die Arbeitsmappe.
+3. Prüfen Sie Event und Klassen in Quick Check.
 
-1. Öffne **Event**.
-2. Wähle **File Import**.
-3. Klicke auf **Import File**.
-4. Wähle den Sporttech-Excel-Export aus.
-5. Prüfe den Importstatus und die Warnungen.
+Eine neue Event-Datei beginnt eine neue Prüfsitzung und löscht bisherige manuelle Korrekturen sowie die Druckauswahl.
 
 ## Importierte Daten ersetzen {/* #replacing-imported-data */}
 
-Wenn du eine andere Datei importierst, ersetzt sie die aktiven importierten Daten. Gespeicherte Vorlagen werden dabei nicht gelöscht.
+Für einen neueren Export **desselben Events** verwenden Sie **Aktuelle Datei aktualisieren…** oder das Aktualisierungssymbol in der Kopfzeile und wählen die aktualisierte Arbeitsmappe. Bestehende Urkundenkorrekturen für dieses Event bleiben erhalten. Verwenden Sie diese Funktion nur für denselben Wettkampf; für ein anderes Event ist ein neuer Import vorgesehen.
 
-Erhältst du einen korrigierten Wettkampfexport, importiere die korrigierte Datei und wiederhole die Prüfung in Quick Check.
+Excel-Dateien werden nicht automatisch aktualisiert. Exportieren Sie die aktuellen Ergebnisse aus Sporttech und wählen Sie diese Arbeitsmappe ausdrücklich aus. Scheitert die Aktualisierung, bleiben die bisherigen nutzbaren Daten erhalten.

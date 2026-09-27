@@ -5,28 +5,22 @@ sidebar_position: 2
 
 # Erster Start {/* #first-run */}
 
-Beim ersten Start prüft die App ihr lokales Desktop-Backend, den Typst-PDF-Renderer, die Laufzeitordner und die gespeicherte Konfiguration.
+## Leerer App-Zustand {/* #empty-app-state */}
 
-## Leerer Ausgangszustand {/* #empty-app-state */}
+Eine neue Installation enthält keine Wettkampfdaten oder eigenen Vorlagen. Jede neue App-Sitzung beginnt ohne geladenes Event und ohne manuelle Korrekturen. Gespeicherte Vorlagen, Einstellungen sowie gespeicherte oder gedruckte PDFs bleiben verfügbar.
 
-Die App kann ohne importierte Daten starten. Das ist normal. Im Bereich Event wird angezeigt, dass keine Quelle geladen ist. Der Arbeitsablauf bleibt als unvollständig markiert, bis Daten importiert wurden.
-
-## Die wichtigsten Bereiche {/* #main-sections */}
+## Hauptbereiche {/* #main-sections */}
 
 | Bereich | Zweck |
 | --- | --- |
-| **Event** | Wettkampfdaten laden oder aktualisieren. |
-| **Quick Check** | Importierte Sporttech-Wettkampfdaten und Warnungen prüfen. |
-| **Produce** | PDF-Vorschauen erzeugen, PDFs speichern und drucken. |
-| **Settings** | Laufzeitverhalten und Diagnosefunktionen anpassen. |
-| **Certificate Studio** | Vorlagen, Platzhalter und Layout verwalten. |
+| Event | Einen Wettkampf laden oder aktualisieren. |
+| Quick Check | Klassen, Einträge, Warnungen und Urkundenkorrekturen prüfen. |
+| Produzieren | Ausgabe, Vorlage, Umfang, Exemplare und Reihenfolge wählen; Vorschau, Speichern oder Drucken. |
+| Urkunden-Studio | Wiederverwendbare Vorlagen gestalten, Daten zuordnen und ausgewählte Einträge prüfen. |
+| Einstellungen | Auto-Aktualisierung, Sprache, Speicher und Kalibrierung einstellen; Updates und Diagnose verwalten. |
+
+Das Aktualisierungssymbol in der Kopfzeile ist in der gesamten Wettkampf-App und im Studio verfügbar. Bei Excel-Events fordert es zur Auswahl einer aktualisierten Arbeitsmappe auf.
 
 ## Empfohlener erster Schritt {/* #recommended-first-action */}
 
-Beginne in **Event** und wähle eine Datenquelle:
-
-- **Online URL** für Sporttech-Online-Wettkämpfe.
-- **Offline OVS** für einen lokalen OVS-Server im Wettkampfnetzwerk.
-- **File Import** für Sporttech-Excel-Exporte.
-
-Öffne nach dem Import **Quick Check**, bevor du PDFs erzeugst.
+Folgen Sie dem [grundlegenden Ablauf](basic-workflow.md). Ein vorhandenes Urkundendesign speichern Sie am besten als PDF und verwenden den [Musterimport im Studio](../certificate-studio/design-samples.md). Für eine von einem anderen Verein geteilte Studio-Vorlage gibt es eine [eigene Importfunktion](../certificate-studio/sharing-templates.md).

@@ -5,28 +5,26 @@ slug: /intro
 
 # Sporttech Certificate Tools
 
-Sporttech Certificate Tools is a desktop app for importing Sporttech competition results, checking imported event data, preparing certificate layouts, and producing printable PDFs.
+Sporttech Certificate Tools helps clubs turn Sporttech competition results into certificates, start lists and result lists. This guide covers the current 0.7.2 beta workflows in English and German.
 
-The documentation is organized around the same workflow as the app:
-
-1. **Event** - load competition results from Sporttech online, an offline OVS server, or an exported file.
-2. **Quick Check** - review imported Sporttech event data, classes, warnings, finals, removed entries, and manual corrections.
-3. **Certificate Studio** - prepare certificate templates, placeholders, fixed text, and layout details.
-4. **Produce** - preview, save, print, and open certificate PDFs or class lists.
-5. **Settings** - adjust import behavior, print calibration, diagnostics, and local runtime data.
+<figure className="app-screenshot">
+  <img src="/Sporttech-Certificate-Tools-Docs/img/app/produce-preview.png" alt="Current Produce screen showing certificate controls and a PDF preview with fictional data" />
+  <figcaption>Current beta interface; fictional competition data. Screenshots use the English interface in both language editions.</figcaption>
+</figure>
 
 ## What the app is for
 
-Use the app when a competition needs certificates or result lists based on Sporttech data. It is designed for local operation, so imported competition data, templates, and generated PDFs remain on the computer where the app is installed unless a user manually shares exported files or support bundles.
+Import an online event, a local OVS event or a Sporttech Excel export. Review the entries, adjust certificate wording where necessary, design reusable templates in Studio, then preview and print PDFs.
 
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/produce-preview.png" alt="Sporttech Certificate Tools Produce screen showing a generated certificate PDF preview" />
-  <figcaption>The app workflow ends in Produce, where operators preview, save, print, and open generated PDFs.</figcaption>
-</figure>
+Sporttech remains responsible for scores, placements and competition groups. The app lets you correct certificate details such as names and clubs; it is not a second scoring system.
+
+Saved templates and saved or printed PDFs remain available after restarting. The loaded event, manual corrections and temporary previews belong to the current session.
 
 ## What to read first
 
-- New users should start with [Installing the beta](./getting-started/installing-beta.md).
-- Operators preparing an event should use the [Basic workflow](./getting-started/basic-workflow.md).
-- Template maintainers should start with [Certificate Studio](./certificate-studio/overview.md).
-- For known gaps, see [Current limitations](./reference/current-limitations.md).
+- [Install the beta](getting-started/installing-beta.md) and follow the [basic workflow](getting-started/basic-workflow.md).
+- [Create a template from a PDF or Word sample](certificate-studio/design-samples.md), or [import a shared Studio template](certificate-studio/sharing-templates.md).
+- [Choose a class and entry to check mappings](certificate-studio/preview-data.md).
+- [Set quantities and print order](produce/certificates.md), including one certificate per team member.
+- [Design for preprinted paper](certificate-studio/preprinted-paper.md).
+- Check [what persists between sessions](reference/behavior-contracts.md) and [common issues](troubleshooting/common-issues.md).

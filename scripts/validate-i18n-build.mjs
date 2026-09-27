@@ -28,7 +28,7 @@ export function validateI18nBuild(root = siteDir) {
   let mediaReferences = 0;
   for (const locale of ['en', 'de']) {
     const prefix = locale === 'de' ? 'de/' : '';
-    const routes = ['', ...docs.map((path) => {
+    const routes = ['', ...(existsSync(join(root, 'src/pages/download.tsx')) ? ['download'] : []), ...docs.map((path) => {
       const text = readFileSync(join(root, 'docs', path), 'utf8');
       const slug = text.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1]
         .match(/^slug:\s*([^\r\n]+)$/m)?.[1]?.trim().replace(/^['"]|['"]$/g, '');

@@ -4,43 +4,22 @@ sidebar_position: 2
 
 # Import and review policy
 
-Settings includes controls that change how imported event data becomes printable certificate output.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/settings-diagnostics.png" alt="Settings screen showing live import behavior and review correction options" />
-  <figcaption>Import and review policy options are saved in Settings and affect how incoming Sporttech data is transformed for printing.</figcaption>
-</figure>
+Sporttech is the authority for competition scores, placements and groups. The app imports those values for certificates and lists; it does not apply a separate scoring policy.
 
 ## Live import behavior
 
 ### Include discipline in live certificate class
 
-When enabled, the discipline is included in the generated certificate class label.
+Enable this setting if certificate class labels should include the discipline. Refresh or import again to apply the setting to event data. This changes certificate wording, not the identity of the source competition group.
 
-Example:
+### Qualification and final scores {/* #add-qualification-score-to-finalist-total */}
 
-```text
-TRA Einzel mannlich
-```
-
-instead of:
-
-```text
-Einzel mannlich
-```
-
-### Add qualification score to finalist total
-
-When enabled, finalists print qualification total plus final total. Non-finalists keep their qualification total.
-
-Use this only when the event's certificate rule requires combined qualification and final scoring.
+Earlier beta documentation described an option to add qualification scores to finalist totals. That option has been removed. Use the scores supplied by Sporttech; change the event's scoring there if necessary.
 
 ## Review corrections
 
-### Recalculate placements when merging groups
+You can correct certificate details such as athlete names, clubs, team names and notes. Same-event refresh keeps those corrections; a new event or restart clears them. See [manual corrections](../quick-check/corrections.md).
 
-When enabled, placements are recalculated after group merges.
+### Group placement authority {/* #recalculate-placements-when-merging-groups */}
 
-When disabled, athletes keep their imported or manually corrected place values.
-
-See [Behavior contracts](/docs/reference/behavior-contracts) for the shared import, identity, phase, scoring, and ranking policies used by the UI and PDF generation.
+Local group merging, renaming and placement recalculation are no longer available. Correct groups or rankings in Sporttech and refresh. Excluding/restoring entries or groups only affects what the app prints.

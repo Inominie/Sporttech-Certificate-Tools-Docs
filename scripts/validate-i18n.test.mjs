@@ -21,7 +21,10 @@ function fixture(t) {
 }
 
 function edit(root, path, transform) {
-  writeFileSync(join(root, path), transform(readFileSync(join(root, path), 'utf8')));
+  const original = readFileSync(join(root, path), 'utf8');
+  const changed = transform(original);
+  assert.notEqual(changed, original, `Fixture edit did not change ${path}`);
+  writeFileSync(join(root, path), changed);
 }
 
 function editJson(root, path, transform) {
@@ -49,6 +52,18 @@ test('missing homepage translation is rejected', (t) => {
   const root = fixture(t);
   editJson(root, 'i18n/de/code.json', (data) => { delete data['homepage.openDocs']; });
   assert.throws(() => validateI18n(root), /Missing German homepage message/);
+});
+
+test('missing download translation is rejected', (t) => {
+  const root = fixture(t);
+  editJson(root, 'i18n/de/code.json', (data) => { delete data['downloads.windows.button']; });
+  assert.throws(() => validateI18n(root), /Missing German download message/);
+});
+
+test('download version interpolation is preserved', (t) => {
+  const root = fixture(t);
+  editJson(root, 'i18n/de/code.json', (data) => { data['downloads.version'].message = 'Version {wrong}'; });
+  assert.throws(() => validateI18n(root), /downloads.version: interpolation placeholders differ/);
 });
 
 test('changed interpolation variables are rejected', (t) => {
@@ -83,7 +98,7 @@ test('changed shared media path is rejected', (t) => {
 
 test('broken relative document link is rejected', (t) => {
   const root = fixture(t);
-  edit(root, `${de}/intro.md`, (text) => text.replace('./getting-started/installing-beta.md', './missing.md'));
+  edit(root, `${de}/intro.md`, (text) => text.replace('getting-started/installing-beta.md', 'missing.md'));
   assert.throws(() => validateI18n(root), /missing relative link target/);
 });
 
@@ -105,7 +120,7 @@ test('legacy heading IDs incompatible with future.v4 are rejected', (t) => {
 
 // Synthetic HTML fixtures test the validator itself; they are NOT a Docusaurus build.
 function fakeBuild(root) {
-  const routes = ['', ...listMarkdownFiles(join(root, 'docs')).map((p) => `docs/${p.replace(/\.mdx?$/, '')}`)];
+  const routes = ['', 'download', ...listMarkdownFiles(join(root, 'docs')).map((p) => `docs/${p.replace(/\.mdx?$/, '')}`)];
   for (const locale of ['en', 'de']) {
     const prefix = locale === 'de' ? 'de/' : '';
     for (const route of routes) {
@@ -123,7 +138,7 @@ test('build validator accepts synthetic bilingual output', (t) => {
   const root = fixture(t);
   fakeBuild(root);
   const result = validateI18nBuild(root);
-  assert.equal(result.pages, 2 * (listMarkdownFiles(join(root, 'docs')).length + 1));
+  assert.equal(result.pages, 2 * (listMarkdownFiles(join(root, 'docs')).length + 2));
   assert.equal(result.mediaReferences, result.pages);
 });
 

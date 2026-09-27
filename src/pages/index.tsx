@@ -141,7 +141,10 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{translate({id: 'homepage.tagline', message: 'User documentation for importing results, checking Sporttech event data, and producing PDFs.'})}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/intro">
+          <Link className="button button--secondary button--lg" to="/download">
+            {translate({id: 'homepage.download', message: 'Download the app'})}
+          </Link>
+          <Link className="button button--outline button--secondary button--lg" to="/docs/intro">
             {translate({id: 'homepage.openDocs', message: 'Open the documentation'})}
           </Link>
           <Link className="button button--outline button--secondary button--lg" to="/docs/getting-started/basic-workflow">
@@ -291,16 +294,15 @@ function GuidedVideoTour({
             </div>
             <video
               aria-label={ariaLabel}
-              autoPlay
+              controls
               className={styles.previewVideo}
-              loop
               muted
               onLoadedMetadata={(event) => updateActiveCue(event.currentTarget)}
               onSeeked={(event) => updateActiveCue(event.currentTarget)}
               onTimeUpdate={(event) => updateActiveCue(event.currentTarget)}
               playsInline
               poster={tourPoster}
-              preload="metadata"
+              preload="none"
             >
               <source src={tourVideo} type="video/mp4" />
             </video>
@@ -311,9 +313,46 @@ function GuidedVideoTour({
   );
 }
 
-function ScreenshotPreview(): ReactNode {
+function CurrentGuides(): ReactNode {
+  const studioImage = useBaseUrl('/img/app/certificate-studio.png');
+  const produceImage = useBaseUrl('/img/app/produce-preview.png');
   return (
-    <>
+    <section className={styles.previewSection}>
+      <div className="container">
+        <div className={styles.sectionHeading}>
+          <Heading as="h2">{translate({id: 'homepage.current.heading', message: 'Create, check and print with the current beta'})}</Heading>
+          <p>{translate({id: 'homepage.current.description', message: 'Updated for 0.7.2: editable design samples, chosen preview entries, reusable templates and flexible certificate quantities. Screenshots use fictional competition data.'})}</p>
+        </div>
+        <div className={styles.guideGrid}>
+          <article className={styles.currentGuide}>
+            <img src={studioImage} width={1600} height={1000} loading="lazy" alt={translate({id: 'homepage.current.studioAlt', message: 'Current Studio with its template library, ribbon, certificate canvas and inspector'})} />
+            <div>
+              <Heading as="h3">{translate({id: 'homepage.current.studioTitle', message: 'Make a template your club can reuse'})}</Heading>
+              <p>{translate({id: 'homepage.current.studioText', message: 'Start from a PDF or Word sample, assign data sources and check a specific class and entry. Save or share the finished Studio template.'})}</p>
+              <Link to="/docs/certificate-studio/design-samples">{translate({id: 'homepage.current.studioLink', message: 'Start with your existing design →'})}</Link>
+              <Link to="/docs/certificate-studio/preview-data">{translate({id: 'homepage.current.previewLink', message: 'Check mappings with real data →'})}</Link>
+            </div>
+          </article>
+          <article className={styles.currentGuide}>
+            <img src={produceImage} width={1600} height={1000} loading="lazy" alt={translate({id: 'homepage.current.produceAlt', message: 'Current Produce page with template, copies, order, entry selection and PDF preview'})} />
+            <div>
+              <Heading as="h3">{translate({id: 'homepage.current.produceTitle', message: 'Prepare the right certificates for the printer'})}</Heading>
+              <p>{translate({id: 'homepage.current.produceText', message: 'Choose one copy per entry or per athlete, reverse the order when needed, and preview before saving or printing. Use reference artwork to design for preprinted paper.'})}</p>
+              <Link to="/docs/produce/certificates">{translate({id: 'homepage.current.produceLink', message: 'Choose quantities and print order →'})}</Link>
+              <Link to="/docs/certificate-studio/preprinted-paper">{translate({id: 'homepage.current.preprintLink', message: 'Work with preprinted paper →'})}</Link>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HistoricalTours(): ReactNode {
+  return (
+    <details className={clsx('container', styles.historicalTours)}>
+      <summary>{translate({id: 'homepage.history.title', message: 'Earlier beta videos — June 2026'})}</summary>
+      <p>{translate({id: 'homepage.history.description', message: 'These recordings show an older beta. Controls, saving, import and review behavior have changed. Use the updated guides above for current instructions; the videos are retained only as a historical overview.'})}</p>
       <GuidedVideoTour
         ariaLabel={translate({id: 'homepage.workflowTour.ariaLabel', message: 'Guided tour of importing a live Sporttech event, checking event data, and producing PDFs'})}
         cues={workflowTourCues}
@@ -328,7 +367,7 @@ function ScreenshotPreview(): ReactNode {
         posterPath="/img/app/sporttech-template-editor-tour-poster.jpg"
         videoPath="/video/sporttech-template-editor-tour.mp4"
       />
-    </>
+    </details>
   );
 }
 
@@ -339,7 +378,8 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <WorkflowCards />
-        <ScreenshotPreview />
+        <CurrentGuides />
+        <HistoricalTours />
       </main>
     </Layout>
   );

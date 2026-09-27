@@ -178,5 +178,119 @@
   },
   "homepage.tourStep": {
     "message": "Videoschritt {step} von {total}: {label}"
+  },
+  "homepage.download": {
+    "message": "App herunterladen"
+  },
+  "downloads.title": {
+    "message": "App herunterladen"
+  },
+  "downloads.description": {
+    "message": "Sporttech Certificate Tools für Windows oder Mac installieren."
+  },
+  "downloads.version": {
+    "message": "Aktuelle Beta · Version {version}"
+  },
+  "downloads.choose": {
+    "message": "Wählen Sie Ihren Computer. Für den Start benötigen Sie nur eine Installationsdatei."
+  },
+  "downloads.windows.platform": {
+    "message": "Windows-PC · x64"
+  },
+  "downloads.windows.button": {
+    "message": "Für Windows herunterladen"
+  },
+  "downloads.windows.step1": {
+    "message": "Die heruntergeladene EXE-Datei öffnen."
+  },
+  "downloads.windows.step2": {
+    "message": "Den Installationsschritten folgen."
+  },
+  "downloads.windows.step3": {
+    "message": "Sporttech Certificate Tools über das Startmenü starten."
+  },
+  "downloads.windows.note": {
+    "message": "Windows kann eine Sicherheitswarnung anzeigen, da dieser Beta-Installer nicht codesigniert ist. Der Vereinscomputer muss die Installation erlauben."
+  },
+  "downloads.mac.platform": {
+    "message": "macOS · Apple Silicon und Intel"
+  },
+  "downloads.mac.button": {
+    "message": "Für Mac herunterladen"
+  },
+  "downloads.mac.step1": {
+    "message": "Die heruntergeladene DMG-Datei öffnen."
+  },
+  "downloads.mac.step2": {
+    "message": "Die App in den Ordner Programme ziehen."
+  },
+  "downloads.mac.step3": {
+    "message": "Die App aus Programme starten und das Disk-Image auswerfen."
+  },
+  "downloads.mac.note": {
+    "message": "Ein Download für beide Mac-Typen. Mit Apple Developer ID signiert und von Apple notarisiert."
+  },
+  "downloads.installed": {
+    "message": "Sie nutzen die App bereits?"
+  },
+  "downloads.update": {
+    "message": "Unter Einstellungen → Updates können Sie die nächste Version herunterladen und installieren. Ältere Versionen ohne integrierten Updater benötigen einmalig eine manuelle Installation über die Links oben."
+  },
+  "downloads.updateHelp": {
+    "message": "So funktionieren Updates"
+  },
+  "downloads.help": {
+    "message": "Installationshilfe"
+  },
+  "downloads.installation": {
+    "message": "Installationsanleitung"
+  },
+  "downloads.firstSteps": {
+    "message": "Erste Schritte in der App"
+  },
+  "downloads.notes": {
+    "message": "Versionshinweise & technische Dateien"
+  },
+  "homepage.current.heading": {
+    "message": "Mit der aktuellen Beta gestalten, prüfen und drucken"
+  },
+  "homepage.current.description": {
+    "message": "Aktualisiert für 0.7.2: bearbeitbare Gestaltungsmuster, gezielte Vorschauauswahl, wiederverwendbare Vorlagen und flexible Urkundenanzahlen. Die Bildschirmfotos verwenden erfundene Wettkampfdaten."
+  },
+  "homepage.current.studioAlt": {
+    "message": "Aktuelles Studio mit Vorlagenbibliothek, Menüband, Urkundenarbeitsfläche und Eigenschaftenbereich"
+  },
+  "homepage.current.studioTitle": {
+    "message": "Eine wiederverwendbare Vereinsvorlage gestalten"
+  },
+  "homepage.current.studioText": {
+    "message": "Mit einem PDF- oder Word-Muster starten, Datenquellen zuordnen und eine bestimmte Klasse mit Eintrag prüfen. Die fertige Studio-Vorlage speichern oder teilen."
+  },
+  "homepage.current.studioLink": {
+    "message": "Mit dem vorhandenen Design beginnen →"
+  },
+  "homepage.current.previewLink": {
+    "message": "Zuordnungen mit echten Daten prüfen →"
+  },
+  "homepage.current.produceAlt": {
+    "message": "Aktuelle Druckseite mit Vorlage, Exemplaren, Reihenfolge, Eintragsauswahl und PDF-Vorschau"
+  },
+  "homepage.current.produceTitle": {
+    "message": "Die richtigen Urkunden für den Druck vorbereiten"
+  },
+  "homepage.current.produceText": {
+    "message": "Ein Exemplar pro Eintrag oder Athlet wählen, bei Bedarf die Reihenfolge umkehren und vor dem Speichern oder Drucken prüfen. Referenzgrafiken helfen beim Gestalten für vorgedrucktes Papier."
+  },
+  "homepage.current.produceLink": {
+    "message": "Exemplare und Druckreihenfolge wählen →"
+  },
+  "homepage.current.preprintLink": {
+    "message": "Mit vorgedrucktem Papier arbeiten →"
+  },
+  "homepage.history.title": {
+    "message": "Videos einer früheren Beta — Juni 2026"
+  },
+  "homepage.history.description": {
+    "message": "Diese Aufnahmen zeigen eine ältere Beta. Bedienung, Speichern, Import und Prüfverhalten haben sich geändert. Verwenden Sie die aktualisierten Anleitungen oben für den heutigen Ablauf; die Videos bleiben nur als historischer Überblick erhalten."
   }
 }

@@ -4,16 +4,22 @@ sidebar_position: 5
 
 # Auto-refresh
 
-Auto-refresh reloads live data at a regular interval for online Sporttech events or offline OVS sources.
+Auto-refresh keeps the loaded online or local OVS event up to date. Configure it in **Settings**; it is enabled by default and the preference is saved.
 
 ## When to use it
 
-Use auto-refresh while results are still changing and the operator wants the app to stay current without manually pressing refresh.
+Keep it enabled during a competition. Refreshing the same event preserves manual names, clubs and certificate-note corrections, valid selections and Studio edits. New source scores and placements still come from Sporttech.
+
+The refresh icon in the header is always accessible, including in Studio. Use it before printing and check the last successful refresh. If a refresh fails, the app keeps the previous data and shows the error; those data may now be out of date.
 
 ## When to turn it off
 
-Turn auto-refresh off before final production if manual corrections are being made and the operator wants a stable review state.
+You can pause automatic refresh in Settings when needed, for example while investigating a connection problem. Manual refresh remains available. You do not need to turn it off to protect certificate corrections.
+
+Excel events are not polled. Select an updated workbook when [refreshing a file import](file-import.md).
 
 ## Default interval
 
-The app defaults to a 30-second refresh interval for live data. The exact controls are shown on the Event screen when an online or offline source is active.
+The default is **30 seconds**. Settings offers 10, 15, 30, 60, 120 or 300 seconds. Refresh is coordinated with active operations and inactive workspaces; the interval is not a guarantee of a new fetch every second on the clock.
+
+Changed source data can invalidate a PDF preview. Wait for the current preview before saving or printing.

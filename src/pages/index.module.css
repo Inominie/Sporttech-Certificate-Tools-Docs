@@ -223,3 +223,40 @@
     min-height: 0;
   }
 }
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.currentGuide {
+  overflow: hidden;
+  border: 1px solid var(--sporttech-line);
+  border-radius: 8px;
+  background: var(--sporttech-panel);
+}
+
+.currentGuide img { display: block; width: 100%; height: auto; }
+.currentGuide > div { padding: 1.5rem; }
+.currentGuide a { display: block; margin-top: 0.75rem; }
+.currentGuide p { color: var(--ifm-color-emphasis-700); }
+.historicalTours { margin-bottom: 3rem; }
+.historicalTours > summary { cursor: pointer; font-weight: 600; padding: 1rem 0; }
+.historicalTours > p { max-width: 70ch; margin-bottom: 2rem; }
+.historicalTours .previewSection > div { padding: 0; }
+
+@media screen and (max-width: 996px) {
+  .guideGrid { grid-template-columns: 1fr; }
+}
+
+.heroBanner :global(.button--outline.button--secondary) {
+  color: #f7fbf8;
+  border-color: rgba(247, 251, 248, 0.75);
+}
+
+.heroBanner :global(.button--outline.button--secondary:hover),
+.heroBanner :global(.button--outline.button--secondary:focus-visible) {
+  color: #16221d;
+  background: #f7fbf8;
+}

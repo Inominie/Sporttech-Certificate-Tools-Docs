@@ -4,33 +4,29 @@ sidebar_position: 1
 
 # Certificate Studio overview
 
-**Certificate Studio** manages certificate templates, placeholder fields, fixed text, and layout.
-
-Open it from the sidebar or from the Produce and Settings screens.
+Studio is the editor for reusable certificate designs. Open it from the competition app, then use **Competition app** to continue printing. The desktop app reuses its competition and Studio windows. Switching templates or leaving Studio with unsaved changes offers Save and continue, Discard changes or Cancel.
 
 <figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/certificate-studio.png" alt="Certificate Studio showing template library, canvas, placeholders, and inspector" />
-  <figcaption>Certificate Studio combines the template library, layout canvas, field controls, and inspector in one full-screen editor.</figcaption>
+  <img src="/Sporttech-Certificate-Tools-Docs/img/app/certificate-studio.png" alt="Studio with a chosen class and entry, data mappings and certificate canvas" />
+  <figcaption>Use the library, ribbon and inspector to build a reusable template.</figcaption>
 </figure>
 
 ## What a template controls
 
-A template profile controls:
+A Studio template contains the page layout, text, data mappings, images, styles, conditions and layout boxes needed to produce certificates. Each template belongs to **Single**, **Synchronized** or **Team**.
 
-- Page size.
-- Template background source.
-- Placeholder fields.
-- Fixed text.
-- Optional assets.
-- Font, alignment, and position settings.
-- Template category such as single, team, or synchronized.
+The library is on the left. The ribbon groups tools under **Insert**, **Arrange**, **View** and **Document**. Select an element to edit it in the right inspector. Multiple selection shows shared formatting controls instead of individual mappings or coordinates.
+
+Use [class-and-entry preview](preview-data.md) to inspect realistic values before saving. The Studio canvas is a design view; the generated PDF is the final output check.
 
 ## Template sources
 
-The current beta supports:
+Choose the starting point that matches your file:
 
-- PDF backgrounds for certificate layout.
-- DOCX-derived compatibility profiles for extracting mail-merge placeholders and basic fixed text.
-- Built-in or saved profile layouts.
+| Starting point | Result |
+| --- | --- |
+| Blank template | A new editable Studio document. |
+| PDF or Word sample | An attempt to recover text and artwork into an editable design; you assign data mappings. |
+| Shared Studio template | A saved design with its layout, mappings and assets already included. |
 
-PDF output is rendered through the bundled Typst runtime.
+A sample is not a finished certificate template. Once you refine and save it, the Studio template becomes the reusable original. Read [sample import](design-samples.md), [library management](template-library.md) and [sharing templates](sharing-templates.md).

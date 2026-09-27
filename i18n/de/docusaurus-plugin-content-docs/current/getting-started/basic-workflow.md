@@ -1,36 +1,23 @@
 ---
-title: "Grundlegender Arbeitsablauf"
+title: "Grundlegender Ablauf"
 sidebar_position: 3
 ---
 
-# Grundlegender Arbeitsablauf {/* #basic-workflow */}
+# Grundlegender Ablauf {/* #basic-workflow */}
 
-Dies ist der empfohlene Ablauf vom Start der App bis zur fertigen Urkunde.
+1. Laden Sie unter **Event** ein Online-Sporttech-Event, einen lokalen OVS-Wettkampf oder einen Excel-Export.
+2. Prüfen Sie im **Quick Check** die betreffende Klasse und ihre Einträge. Korrigieren Sie bei Bedarf Namen, Vereine oder Urkundenhinweise. Falsche Punkte oder Platzierungen berichtigen Sie in Sporttech und aktualisieren anschließend.
+3. Öffnen Sie das **Urkunden-Studio**. Erstellen Sie eine Vorlage, verwenden Sie ein PDF-/Word-Gestaltungsmuster oder importieren Sie eine geteilte Studio-Vorlage. Legen Sie Namen und Kategorie fest: Einzel, Synchron oder Team.
+4. Wählen Sie für die Vorschau zuerst den **Wettkampf/die Klasse**, dann einen **Eintrag**. Wechseln Sie zu echten Daten und prüfen Sie Zuordnungen und Layout. Speichern Sie die Vorlage.
+5. Kehren Sie zu **Produzieren** zurück. Wählen Sie Urkunden, Startlisten oder Ergebnislisten und den gewünschten Umfang. Bei Urkunden wählen Sie die passende Vorlage, die Anzahl der Exemplare und die Druckreihenfolge.
+6. Prüfen Sie die PDF-Vorschau. Speichern Sie die Datei bei Bedarf oder drucken Sie direkt aus der Vorschau. Wählen Sie im Druckdialog ein Exemplar, wenn das PDF bereits die benötigten Urkundenkopien enthält.
 
-1. Öffne die App.
-2. Gehe zu **Event**.
-3. Importiere Wettkampfdaten aus einem Online-Wettkampf, von einem lokalen OVS-Server oder aus einer Datei.
-4. Öffne **Certificate Studio** und wähle oder erstelle eine Urkundenvorlage.
-5. Prüfe, ob die Platzhalterfelder richtig positioniert sind.
-6. Gehe zu **Quick Check**.
-7. Prüfe importierte Wettkampfdaten, Wettkampfklassen, Warnungen, Finalergebnisse, ausgeschlossene Einträge und manuelle Korrekturen.
-8. Gehe zu **Produce**.
-9. Wähle **Certificates** für Urkunden oder **Class Lists** für Klassenlisten.
-10. Wähle den gewünschten Umfang, etwa alle Wettkampfklassen, eine einzelne Klasse oder eine einzelne Person bzw. ein Team.
-11. Klicke auf **Preview PDF**.
-12. Prüfe die Vorschau.
-13. Klicke auf **Save PDF**, wenn die Vorschau korrekt ist.
-14. Drucke über die App oder öffne die gespeicherte PDF-Datei im PDF-Programm des Betriebssystems.
+## Gute Gewohnheit im Wettkampfbetrieb {/* #operator-habit */}
 
-## Bewährte Arbeitsweise {/* #operator-habit */}
+Lassen Sie die Auto-Aktualisierung für Online- und OVS-Events eingeschaltet. Sie ist standardmäßig auf 30 Sekunden eingestellt und erhält Urkundenkorrekturen beim selben Event. Aktualisieren Sie vor einem wichtigen Drucklauf über das Symbol in der Kopfzeile und prüfen Sie die letzte erfolgreiche Aktualisierung. Für ein Excel-Event benötigen Sie einen aktualisierten Export.
 
-Prüfe vor dem Speichern oder Drucken immer die Vorschau. So kontrollierst du die ausgewählte Vorlage, die ausgewählten Einträge, die Ausgabeart und die ungefähre Seitenzahl.
+Drucken Sie vor einer ganzen Klasse ein Testblatt mit dem tatsächlichen Drucker und Papier. Prüfen Sie Seitenskalierung, Ränder und einen möglichen Vordruck. Nutzen Sie die [Druckkalibrierung](../produce/print-calibration.md) bei einem gleichmäßigen Druckerversatz.
 
-## Wann du zu Quick Check zurückkehren solltest {/* #when-to-return-to-quick-check */}
+## Wann Sie zu Quick Check zurückkehren sollten {/* #when-to-return-to-quick-check */}
 
-Kehre zu **Quick Check** zurück, wenn:
-
-- Für eine Wettkampfklasse Warnungen vorliegen.
-- Eine Person oder ein Team keine Urkunde erhalten soll.
-- Eine Platzierung, ein Klassenname, ein Personenname oder ein Verein manuell korrigiert werden muss.
-- Final- und Vorkampfdaten besondere Aufmerksamkeit erfordern.
+Kehren Sie zurück, wenn Einträge fehlen, Warnungen auftreten oder Sporttech-Ergebnisse geändert wurden. Eine Aktualisierung kann ein zuvor erzeugtes PDF ungültig machen; prüfen Sie vor dem Druck die neue Vorschau. Ein anderes Event oder ein Neustart löscht manuelle Korrekturen. [Gespeicherte Ausgaben und Vorlagen bleiben erhalten](../reference/behavior-contracts.md).

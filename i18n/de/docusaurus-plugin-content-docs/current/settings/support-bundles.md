@@ -29,7 +29,7 @@ Ein Support-Paket kann Folgendes enthalten:
 
 ## Datenschutzprüfung {/* #privacy-review */}
 
-Prüfe ein Paket sorgfältig, bevor du es weitergibst. Es kann Folgendes enthalten:
+Prüfen Sie ein Paket sorgfältig, bevor Sie es weitergeben. Es kann Folgendes enthalten:
 
 - Namen von Teilnehmenden.
 - Vereine oder vertretene Organisationen.
@@ -42,6 +42,8 @@ Erzeugte PDFs sowie hochgeladene Vorlagen- und Quelldateien werden nicht in die 
 
 ## Ein Paket erstellen {/* #creating-a-bundle */}
 
-Öffne **Settings** und klicke auf **Create Support Bundle**.
+Öffnen Sie **Einstellungen** und klicken Sie auf **Support-Paket erstellen**.
 
 Gib das Paket ausschließlich über den freigegebenen Beta-Support-Kanal weiter.
+
+Ein Supportpaket ist keine Sicherung. Exportieren Sie wichtige [Studio-Vorlagen](../certificate-studio/sharing-templates.md) separat. Die optionale Import-Datenübersicht dient der technischen Quelldiagnose; mit [Zuordnungen prüfen](../certificate-studio/preview-data.md) kontrollieren Sie Urkundenfelder für eine gewählte Klasse und einen Eintrag.

@@ -1,0 +1,32 @@
+.page {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.intro { margin-bottom: 2rem; }
+.intro h1 { margin-bottom: 0.75rem; }
+.intro > p:last-child { color: var(--sporttech-muted); font-size: 1.1rem; }
+.version { color: var(--ifm-color-primary); font-weight: 700; margin-bottom: 0.6rem; }
+.installers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.card { background: var(--sporttech-panel); border: 1px solid var(--sporttech-line); border-radius: 12px; padding: 1.75rem; }
+.card h2 { margin-bottom: 0.4rem; }
+.platform { color: var(--sporttech-muted); margin-bottom: 1.4rem; }
+.download { display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; white-space: normal; }
+.download svg { flex-shrink: 0; }
+.card small { display: block; color: var(--sporttech-muted); margin-top: 0.6rem; }
+.card ol { padding-left: 1.3rem; margin: 1.5rem 0; }
+.card li + li { margin-top: 0.5rem; }
+.note { color: var(--sporttech-muted); font-size: 0.9rem; margin: 0; }
+.updates { display: flex; align-items: center; gap: 2rem; background: var(--sporttech-soft); border: 1px solid var(--sporttech-line); border-radius: 12px; margin-top: 1.5rem; padding: 1.5rem 1.75rem; }
+.updates h2 { font-size: 1.2rem; }
+.updates p { margin: 0; }
+.updates > a { flex-shrink: 0; font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.5rem; }
+@media (max-width: 700px) {
+  .page { padding-top: 2rem; }
+  .installers { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 1.25rem; }
+  .updates { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.25rem; }
+}

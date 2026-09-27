@@ -4,36 +4,26 @@ sidebar_position: 1
 
 # Settings overview
 
-Use **Settings** for controls that are not part of the normal event workflow.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/settings-diagnostics.png" alt="Settings screen showing import behavior, review corrections, calibration, studio, and support bundle controls" />
-  <figcaption>Settings keeps lower-frequency import policy, correction behavior, calibration, template access, and support tools separate from the main event flow.</figcaption>
-</figure>
-
-Settings cover:
-
-- Beta update checks.
-- Live import behavior.
-- Review correction behavior.
-- Storage limits for generated output.
-- Print calibration defaults.
-- Certificate Studio access.
-- Beta diagnostics.
-- Runtime paths.
-
-Most settings save automatically.
+Settings contains app preferences, event refresh, print calibration, storage, update controls and support diagnostics.
 
 ## Beta update checks
 
-The app checks whether the installed beta matches the public beta manifest. It does not download, install, restart, or replace the application.
+The desktop app checks at startup. An available-update banner starts the download and takes you to Settings, where progress and **Restart and install** are available. You control when to restart. See [checking for updates](checking-for-updates.md).
 
-See [Checking for updates](./checking-for-updates.md) for the manual update process.
+For a first installation or recovery, use the [download page](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/download).
 
 ## Runtime paths
 
-Runtime paths show where the app stores active project data, generated PDFs, previews, saved group PDFs, reprints, templates, and imported data.
+The runtime-path display identifies the local data, template and output locations. Use it to locate files or help support diagnose a problem. A [support bundle](support-bundles.md) contains diagnostics and can include participant data; it is not a template backup.
 
-Use these paths when an operator needs to find local outputs or review diagnostic files.
+## Event refresh and import
 
-See [Behavior contracts](/docs/reference/behavior-contracts) for the full active-project lifecycle and generated-output limit policy.
+[Auto-refresh](../event/auto-refresh.md) defaults to enabled every 30 seconds for online/OVS events. Settings offers other intervals and saves your preference. Use the header refresh icon for a manual refresh in any workspace.
+
+The [import setting](import-policy.md) can include the discipline in certificate class labels. It does not change Sporttech groups or rankings.
+
+## Language, printing and storage
+
+Choose the interface language, configure [printer offsets](../produce/print-calibration.md) and review the local storage limit. Changing language does not translate fixed template text or switch an explicitly German/English date format.
+
+Saved templates and saved/printed PDFs persist. [Event session data and previews](../reference/behavior-contracts.md) have a different lifecycle.

@@ -5,36 +5,26 @@ sidebar_position: 1
 
 # Überblick: Einstellungen {/* #settings-overview */}
 
-Unter **Settings** findest du Funktionen, die nicht zum normalen Wettkampfablauf gehören.
+Die Einstellungen enthalten App-Optionen, Event-Aktualisierung, Druckkalibrierung, Speicher, Updatefunktionen und Supportdiagnose.
 
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/settings-diagnostics.png" alt="Bereich Settings mit Importverhalten, Korrektureinstellungen, Kalibrierung, Studio-Zugriff und Support-Paketen" />
-  <figcaption>Settings bündelt seltener benötigte Import- und Korrektureinstellungen, Kalibrierung, Vorlagenzugriff und Support-Werkzeuge getrennt vom Hauptablauf.</figcaption>
-</figure>
+## Beta-Updates prüfen {/* #beta-update-checks */}
 
-Die Einstellungen umfassen:
+Die Desktop-App prüft beim Start auf Updates. Ein Hinweis auf ein verfügbares Update startet den Download und öffnet die Einstellungen; dort sehen Sie den Fortschritt und **Neustarten und installieren**. Sie bestimmen den Neustartzeitpunkt. Siehe [Updates prüfen](checking-for-updates.md).
 
-- Prüfung auf Beta-Updates.
-- Verhalten beim Live-Import.
-- Verhalten bei Prüfdatenkorrekturen.
-- Speicherlimits für erzeugte Ausgaben.
-- Standardwerte für die Druckkalibrierung.
-- Zugriff auf Certificate Studio.
-- Beta-Diagnosefunktionen.
-- Laufzeitpfade.
-
-Die meisten Einstellungen werden automatisch gespeichert.
-
-## Prüfung auf Beta-Updates {/* #beta-update-checks */}
-
-Die App prüft, ob die installierte Beta dem öffentlichen Beta-Manifest entspricht. Sie lädt die Anwendung nicht herunter, installiert oder ersetzt sie nicht und startet sie auch nicht neu.
-
-Der manuelle Update-Ablauf ist unter [Nach Updates suchen](./checking-for-updates.md) beschrieben.
+Für Erstinstallation oder Wiederherstellung verwenden Sie die [Downloadseite](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/download).
 
 ## Laufzeitpfade {/* #runtime-paths */}
 
-Die Laufzeitpfade zeigen, wo die App aktive Projektdaten, erzeugte PDFs, Vorschauen, gespeicherte Gruppen-PDFs, Nachdrucke, Vorlagen und importierte Daten ablegt.
+Die Pfadanzeige nennt die lokalen Speicherorte für Daten, Vorlagen und Ausgaben. Damit finden Sie Dateien oder helfen dem Support bei der Diagnose. Ein [Supportpaket](support-bundles.md) enthält Diagnosedaten und möglicherweise Teilnehmerdaten; es ist keine Vorlagensicherung.
 
-Nutze diese Pfade, wenn du lokale Ausgaben finden oder Diagnosedateien prüfen möchtest.
+## Event-Aktualisierung und Import {/* #event-refresh-and-import */}
 
-Das vollständige Verhalten des aktiven Projekts und die Speicherlimits für erzeugte Ausgaben findest du unter [Verbindliches App-Verhalten](../reference/behavior-contracts.md).
+Die [Auto-Aktualisierung](../event/auto-refresh.md) ist für Online-/OVS-Events standardmäßig alle 30 Sekunden aktiv. Andere Intervalle sind einstellbar und werden gespeichert. Das Symbol in der Kopfzeile aktualisiert in jedem Arbeitsbereich manuell.
+
+Die [Importeinstellung](import-policy.md) kann die Disziplin in die Urkunden-Klassenbezeichnung aufnehmen. Sporttech-Gruppen oder Rangfolgen werden dadurch nicht geändert.
+
+## Sprache, Druck und Speicher {/* #language-printing-and-storage */}
+
+Wählen Sie die Oberflächensprache, konfigurieren Sie [Druckerversätze](../produce/print-calibration.md) und prüfen Sie das lokale Speicherlimit. Ein Sprachwechsel übersetzt keine Fixtexte in Vorlagen und ändert kein ausdrücklich deutsches/englisches Datumsformat.
+
+Gespeicherte Vorlagen sowie gespeicherte/gedruckte PDFs bleiben erhalten. [Event-Sitzungsdaten und Vorschauen](../reference/behavior-contracts.md) haben einen anderen Lebenszyklus.

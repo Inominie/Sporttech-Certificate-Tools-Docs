@@ -4,23 +4,18 @@ sidebar_position: 2
 
 # Online Sporttech events
 
-Use **Online URL** when the event is available through Sporttech online results.
-
 ## Import by URL or event ID
 
-1. Open **Event**.
-2. Select **Online URL**.
-3. Paste the Sporttech event URL or event ID.
-4. Click **Import Live Event**.
-
-The app fetches the event data and converts it into printable event entries for review and production.
+Open **Event → Online URL**, paste a supported Sporttech event URL or event ID and choose **Import Live Event**. Check the imported title and classes before producing output.
 
 ## Event browser
 
-The Event screen also includes an event browser. Use it to search by year, country, sport, status, or text query, then import a listed event directly.
+The browser starts with **Germany** as the selected country. Adjust the country, year, sport and search text to find the competition.
+
+Use **All events**, **Happening today**, **Upcoming** or **Past** to narrow the date range. Events whose dates include today appear first and are highlighted, including in the upcoming or past views. The other search filters still apply.
+
+“Happening today” is based on event dates. It does not mean Sporttech has confirmed that scoring is currently running. Check the loaded data and refresh status before printing.
 
 ## Refresh online data
 
-Click **Refresh Online Data** to fetch the latest online data for the previously imported online event.
-
-Use auto-refresh only when the event data is still changing and the operator wants the active project to update regularly.
+Use the refresh icon in the header to update the loaded event. [Auto-refresh](auto-refresh.md) is enabled by default and configured in Settings. Same-event refresh keeps manual certificate corrections; switching to a different event clears them.

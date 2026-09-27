@@ -39,3 +39,5 @@ The search field accepts athlete names, club names, and class labels.
 ## Details drawer
 
 Selecting a row can show details such as summary data, routines, judges, and raw source data where Sporttech exposes it.
+
+Use [manual corrections](corrections.md) for names, clubs and certificate notes. Scores, placements and groups remain authoritative in Sporttech. The header refresh icon updates the same event while preserving certificate corrections. Studio has a separate [class-and-entry preview selection](../certificate-studio/preview-data.md) for checking template mappings.

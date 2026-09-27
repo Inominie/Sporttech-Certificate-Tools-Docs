@@ -24,3 +24,5 @@ Offsets are measured in points.
 Use **Calibration PDF** from Produce or Settings to generate calibration output. Print it using the same printer and printer settings used for final certificates.
 
 Keep printer scaling at actual size or 100 percent unless the event's print process requires otherwise.
+
+Calibration belongs to this computer/printer setup and is not exported with a Studio template. Do not move every text field to compensate for a printer-wide offset. For reference artwork that is already on the paper, use the separate [preprinted-paper setting](../certificate-studio/preprinted-paper.md).

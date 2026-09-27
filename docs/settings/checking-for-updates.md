@@ -4,7 +4,9 @@ sidebar_position: 2
 
 # Checking for updates
 
-The desktop app checks for updates at startup. You can also open **Settings → Beta updates → Check for updates**. Updates and installers are hosted in the [public documentation repository's releases](https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/releases).
+The desktop app checks for updates at startup. You can also open **Settings → Beta updates → Check for updates**. Installers are available on the [download page](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/download).
+
+The available-update banner also offers a direct download action and opens Settings for progress and installation. You do not need to find the installer manually for a normal supported upgrade.
 
 ## Versions with in-app updates
 
