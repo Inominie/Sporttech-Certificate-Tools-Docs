@@ -1,5 +1,7 @@
 # Sporttech Certificate Tools Docs
 
+**Looking for the application? [Download the app for Windows or Mac](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/download).**
+
 [English](README.md) | [Deutsch](README.de.md)
 
 User documentation for Sporttech Certificate Tools.
@@ -13,7 +15,7 @@ English remains the default language at the existing URLs. German is available u
 - [English documentation](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/)
 - [German documentation](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/)
 
-The app's English button names remain recognizable in the German instructions. Existing screenshots and videos are shared between languages; their descriptions, alternative text, and guided-tour text are translated.
+Instructions use the corresponding app language's button names. Current screenshots use fictional data and are shared between languages with the English interface; descriptions and alternative text are translated. June 2026 videos are labelled historical on the homepage and no longer autoplay.
 
 ## Installation
 
@@ -94,3 +96,13 @@ The German site uses:
 ```text
 https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/
 ```
+
+## Installer download page
+
+The permanent [download page](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/download) gets its version and installer links from `static/updates/desktop-beta.json` at build time. `plugins/downloads` verifies the signature with the app's public updater keys before generating the page; invalid or incomplete metadata fails the build. Keep `plugins/downloads/public-keys.json` aligned with the application's trusted keys when rotating signing keys. Publishing the feed triggers Pages deployment and updates both languages without manually editing version numbers. The Windows EXE and Mac DMG buttons are for initial installation; the Mac ZIP is for the updater.
+
+## Documentation baseline and maintenance
+
+The user guide has been audited against app 0.7.2 and its development history. The [audit report](maintenance/documentation-audit-2026-09.md) records the baseline, covered changes, source evidence and validation.
+
+For each release, compare changed user workflows against both language editions, including lifecycle rules, labels, screenshots and troubleshooting. Automated checks catch structural errors, not outdated behavioral claims. New public media must not contain real participant or local-user data. Existing recording scripts date from June and load a real event by default; do not run them unchanged for new public recordings.

@@ -1,5 +1,7 @@
 # Sporttech Certificate Tools Docs
 
+**Sie suchen die Anwendung? [App für Windows oder Mac herunterladen](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/download).**
+
 [English](README.md) | [Deutsch](README.de.md)
 
 Benutzerdokumentation für Sporttech Certificate Tools.
@@ -13,7 +15,7 @@ Englisch bleibt die Standardsprache unter den bisherigen URLs. Deutsch ist unter
 - [Englische Dokumentation](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/)
 - [Deutsche Dokumentation](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/)
 
-Die englischen Schaltflächenbezeichnungen der App bleiben in den deutschen Anleitungen zur Wiedererkennung erhalten. Beide Sprachversionen verwenden die vorhandenen Screenshots und Videos gemeinsam; Beschreibungen, Alternativtexte und Begleittexte der Videotouren sind übersetzt.
+Die Anleitungen verwenden die Schaltflächenbezeichnungen der jeweiligen App-Sprache. Aktuelle Bildschirmfotos mit erfundenen Daten werden zwischen den Sprachfassungen geteilt und zeigen die englische Oberfläche; Beschreibungen und Alternativtexte sind übersetzt. Die Videos vom Juni 2026 sind auf der Startseite als historisch gekennzeichnet und werden nicht automatisch abgespielt.
 
 ## Installation
 
@@ -96,3 +98,13 @@ Die deutsche Version verwendet:
 ```text
 https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/
 ```
+
+## Downloadseite für die App
+
+Die dauerhafte [Downloadseite](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/download) übernimmt Version und Installer-Links beim Build aus `static/updates/desktop-beta.json`. Das Plugin `plugins/downloads` prüft die Signatur mit den öffentlichen Update-Schlüsseln; ungültige oder unvollständige Daten lassen den Build fehlschlagen. Bei einem Schlüsselwechsel muss `plugins/downloads/public-keys.json` mit den vertrauenswürdigen Schlüsseln der App übereinstimmen. Die Veröffentlichung des Feeds aktualisiert beide Sprachen automatisch. Für die Erstinstallation dienen Windows-EXE und Mac-DMG; die Mac-ZIP-Datei verwendet der Updater.
+
+## Dokumentationsstand und Aktualisierung
+
+Die Benutzeranleitung wurde für App 0.7.2 vollständig mit Entwicklungshistorie und Implementierung abgeglichen. Der [Auditbericht](maintenance/documentation-audit-2026-09.md) nennt Ausgangsstand, abgedeckte Änderungen, Quellnachweise und Prüfungen.
+
+Prüfen Sie bei jedem Release geänderte Benutzerabläufe gegen beide Sprachfassungen, einschließlich Persistenzregeln, Beschriftungen, Bildschirmfotos und Fehlerhilfe. Die maschinellen Prüfungen erkennen strukturelle Fehler, aber keine veralteten Verhaltensbeschreibungen. Neue öffentliche Medien dürfen keine echten Teilnehmer- oder lokalen Benutzerdaten enthalten. Die vorhandenen Aufnahmeskripte stammen aus dem Juni und laden standardmäßig ein echtes Event; verwenden Sie sie nicht unverändert für neue öffentliche Aufnahmen.

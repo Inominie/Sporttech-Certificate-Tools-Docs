@@ -18,6 +18,7 @@ const config: Config = {
   projectName: 'Sporttech-Certificate-Tools-Docs',
 
   onBrokenLinks: 'throw',
+  plugins: ['./plugins/downloads/index.cjs'],
 
   i18n: {
     defaultLocale: 'en',
@@ -57,6 +58,7 @@ const config: Config = {
         src: 'img/sporttech-logo.svg',
       },
       items: [
+        {to: '/download', label: 'Download', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'userGuide',
@@ -80,6 +82,7 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
+            {label: 'Download the app', to: '/download'},
             {
               label: 'Start here',
               to: '/docs/intro',

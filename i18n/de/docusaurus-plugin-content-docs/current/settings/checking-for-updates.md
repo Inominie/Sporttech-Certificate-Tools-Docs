@@ -5,7 +5,9 @@ sidebar_position: 2
 
 # Nach Updates suchen {/* #checking-for-updates */}
 
-Die Desktop-App sucht beim Start nach Updates. Über **Einstellungen → Beta-Updates → Nach Updates suchen** können Sie die Prüfung erneut starten. Updates und Installationsdateien finden Sie in den [Veröffentlichungen des öffentlichen Dokumentations-Repositories](https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/releases).
+Die Desktop-App sucht beim Start nach Updates. Über **Einstellungen → Beta-Updates → Nach Updates suchen** können Sie die Prüfung erneut starten. Updates und Installationsdateien finden Sie auf der [Downloadseite](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/de/download).
+
+Der Hinweis auf ein verfügbares Update bietet ebenfalls einen direkten Download und öffnet die Einstellungen für Fortschritt und Installation. Für ein gewöhnliches unterstütztes Update müssen Sie den Installer nicht manuell suchen.
 
 ## Versionen mit integrierten Updates {/* #versions-with-in-app-updates */}
 

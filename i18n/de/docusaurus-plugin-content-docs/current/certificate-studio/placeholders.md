@@ -1,36 +1,41 @@
 ---
 title: "Platzhalter"
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Platzhalter {/* #placeholders */}
 
-Platzhalter sind dynamische Textfelder, die bei der PDF-Erstellung mit importierten Sporttech-Daten gefüllt werden.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/certificate-studio.png" alt="Arbeitsfläche in Certificate Studio mit Urkundenplatzhaltern und Feldinspektor" />
-  <figcaption>Die Arbeitsfläche zeigt Platzhalter im Layout. Im Inspektor ordnest du den ausgewählten Platzhalter den importierten Daten zu.</figcaption>
-</figure>
+Ein Platzhalter hat einen **Namen** für den Editor und eine **Datenquelle** für die Urkunde. Das Ändern des Namens ändert nicht seine Zuordnung. Fügen Sie unter Einfügen einen Platzhalter hinzu, wählen Sie Quelle und Namen und positionieren Sie das ausgewählte neue Feld auf der Seite.
 
 ## Häufige Platzhalter {/* #common-placeholders */}
 
-| Platzhalter | Typische Datenquelle |
+Quelllisten sind bei einzelnen Platzhaltern, kombinierten Texten und der Zuordnungsprüfung einheitlich gruppiert. Die verfügbaren Quellen hängen von der Vorlagenkategorie ab.
+
+| Gruppe | Beispiele |
 | --- | --- |
-| Given name | Vorname der teilnehmenden Person |
-| Surname | Nachname der teilnehmenden Person |
-| Representing | Verein oder vertretene Organisation |
-| Class | Bezeichnung der Urkundenklasse |
-| Total | Gesamtpunktzahl des Ergebnisses |
-| Place | Platzierung des Ergebnisses |
+| Event und Klasse | Eventtitel/-untertitel, Klasse, Phase. |
+| Einzel | Athletenname und Verein. |
+| Synchron | Athlet 1/2, einzelne Vereine, kombinierte Namen/Vereine. |
+| Team | Teamname, Mitgliederanzahl, einzelne Mitgliedernamen und Vereine. |
+| Ergebnisse | Sporttech-Platzierung und -Punktzahl. |
+| Datum und Dokument | Aktuelles Datum in numerischen oder ausgeschriebenen Formaten, Vorlagenname, Dokumentseitennummer und -anzahl. |
+
+Bei Synchron-Urkunden zeigt **Synchron-Verein(e), ohne Dopplungen** einen gemeinsamen Verein nur einmal. Unterscheiden sich die Vereine, werden beide ausgegeben. Die einzelnen und die gewöhnlichen kombinierten Vereinszuordnungen bleiben verfügbar.
 
 ## Felder zuordnen {/* #mapping-fields */}
 
-Jeder Platzhalter sollte einem Quellfeld zugeordnet sein. Die Quellfelder stammen aus den importierten Urkundendaten und können sich danach unterscheiden, ob die Zeile einen Einzeleintrag, ein Synchronpaar oder ein Team beschreibt.
+Wählen Sie ein Feld und seine Quelle im Eigenschaftenbereich. Soll ein Platzhalter bewusst leer bleiben, verwenden Sie die Option zum absichtlichen Leerhalten; ein unzugeordnetes Feld benötigt vor der endgültigen Ausgabe noch eine Entscheidung.
+
+Ein kombinierter Text enthält geordnete Fixtext- und Platzhalterteile. Jeder Platzhalterteil besitzt eine eigene Quelle. Sie können Teile manuell hinzufügen, bestehende Texte erweitern oder ausgewählte Elemente kombinieren. Reine Fixtexte werden zu einem normalen Textfeld mit bearbeitbaren Zeilenumbrüchen. Bei Platzhaltern oder gemischten Texten entsteht ein kombiniertes Feld. Prüfen Sie anschließend Leerzeichen, Satzzeichen und Zeilenumbrüche.
 
 ## Vorschauwerte {/* #preview-values */}
 
-Wenn importierte Daten verfügbar sind, prüfe anhand der Vorschauwerte, ob ein Platzhalter den erwarteten Text ausgibt, bevor du die Vorlage speicherst.
+Der **Platzhaltermodus** zeigt Namen an, auch bei automatisch erzeugten Datumswerten. **Echte Daten** zeigt Werte für die ausgewählte [Klasse und den Eintrag](preview-data.md).
+
+Aktuelle Datumsfelder verwenden das lokale Datum des Computers bei der PDF-Erstellung, nicht das Sporttech-Eventdatum. Ausgeschriebene deutsche/englische Datumsformate behalten die gewählte Sprache unabhängig von der App-Sprache. Innerhalb eines PDFs gilt ein gemeinsamer Erstellungszeitpunkt. Neue Uhrzeitplatzhalter werden nicht mehr angeboten; ältere gespeicherte Zuordnungen bleiben kompatibel.
+
+Die Dokumentnummerierung bezeichnet Seitennummer und Gesamtseitenzahl des erzeugten PDFs einschließlich zusätzlicher Exemplare. Sie ist weder Platzierung noch dauerhafte Urkundennummer. Die einzelne Studio-Urkundenvorschau entspricht Seite 1 von 1.
 
 ## Fehlende Daten {/* #missing-data */}
 
-Wenn für einen Platzhalter keine Quelldaten vorhanden sind, kann die erzeugte PDF-Datei einen leeren Wert oder einen Ersatztext anzeigen. Prüfe vor der endgültigen Ausgabe die Warnungen in Certificate Studio und Produce.
+Unterscheiden Sie mit **Zuordnungen prüfen** zwischen unzugeordneten Quellen, absichtlich leeren Feldern, fehlenden Eintragswerten und bedingt ausgeblendeten Feldern. Ein leerer Wert kann für den Eintrag korrekt sein, etwa bei einem ungenutzten Teamplatz. Testen Sie vor einer ganzen Klasse einen zweiten Eintrag mit anderen Namen, Vereinen oder einer anderen Teamgröße.

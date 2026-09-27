@@ -5,24 +5,20 @@ sidebar_position: 2
 
 # Manuelle Korrekturen {/* #manual-corrections */}
 
-Manuelle Korrekturen sind dafür gedacht, importierte Sporttech-Wettkampfdaten vor dem Druck anzupassen.
+Urkundenkorrekturen ändern Angaben für die Darstellung, ohne Sporttech-Ergebnisse zu verändern. Sie gelten lokal für die aktuelle Event-Sitzung und werden nicht an Sporttech zurückgeschrieben.
 
-## Eine ausgewählte Zeile korrigieren {/* #correct-a-selected-row */}
+## Ausgewählte Zeile korrigieren {/* #correct-a-selected-row */}
 
-1. Öffne **Quick Check**.
-2. Wähle die Zeile der betreffenden Person oder des Teams aus.
-3. Klicke auf **Correct Selected**.
-4. Nimm die erforderliche Korrektur vor.
-5. Speichere die Änderung.
+Wählen Sie eine Klasse und einen Eintrag und verwenden Sie die Korrekturfunktionen für Namen, Vereine, Teamnamen oder einen Urkundenhinweis. Trennen Sie bei Synchron-Namen und -Vereinen die Werte beider Athleten durch `/`, damit einzelne und kombinierte Zuordnungen sie einheitlich verwenden können.
 
-Manuelle Korrekturen werden in der Quick-Check-Übersicht gezählt und über den Filter **Overrides** angezeigt.
+Punkte, Platzierungen und Wettkampfgruppen lassen sich hier nicht überschreiben. Korrigieren Sie diese in Sporttech und aktualisieren Sie anschließend das Event.
 
 ## Korrekturen zurücksetzen {/* #revert-corrections */}
 
-Einzelne Korrekturen kannst du im Korrekturbereich zurücksetzen.
+Setzen Sie die betreffende Korrektur zurück, um wieder den importierten Wert zu verwenden. Eine Aktualisierung **desselben Events** erhält Korrekturen. Ein anderes Event, ein neuer Dateiimport oder ein Neustart löscht sie. Für einen neuen Export desselben Events verwenden Sie **Aktuelle Datei aktualisieren…**.
 
-Um alle manuellen Korrekturen zurückzusetzen, öffne **Settings** und nutze **Revert Manual Corrections**.
+Eine Korrektur kann bewusst von einem später geänderten Quellwert abweichen. Prüfen Sie den Filter für Überschreibungen, wenn unerwartet anderer Text erscheint.
 
 ## Zeilen vom Druck ausschließen {/* #remove-rows-from-printing */}
 
-Du kannst Einträge vom Druck ausschließen, wenn dafür keine Urkunde erzeugt werden soll. Ausgeschlossene Einträge bleiben in Quick Check sichtbar, damit du die Änderungen nachvollziehen kannst.
+Schließen Sie Einträge oder Gruppen aus der Druckauswahl aus, wenn diese keine Urkunden erhalten sollen. Sporttech-Ergebnisse werden dadurch nicht gelöscht. In der Ansicht für entfernte Einträge können Sie sie wiederherstellen. Prüfen Sie vor dem Druck den ausgewählten Umfang unter Produzieren.

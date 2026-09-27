@@ -1,37 +1,31 @@
 ---
-title: "Überblick: Wettkampfdaten importieren"
+title: "Überblick: Event-Import"
 sidebar_position: 1
 ---
 
-# Überblick: Wettkampfdaten importieren {/* #event-import-overview */}
-
-Im Bereich **Event** lädst du Wettkampfdaten in das aktive Projekt. Es ist immer nur eine importierte Quelle gleichzeitig aktiv.
+# Überblick: Event-Import {/* #event-import-overview */}
 
 <figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/event-import.png" alt="Bereich Event mit ausgewähltem Dateiimport und geladenen Sporttech-Beispieldaten" />
-  <figcaption>Event zeigt die Quellenauswahl, den aktuellen Quellenstatus, die Anzahl der Wettkampfklassen, Warnungen und den Zustand der aktiven Vorlage.</figcaption>
+  <img src="/Sporttech-Certificate-Tools-Docs/img/app/event-import.png" alt="Eventseite mit Quellenauswahl und getrennten Aktionen für neue Datei und Aktualisierung" />
+  <figcaption>Eine neue Quelle wählen oder das aktuelle Event aktualisieren.</figcaption>
 </figure>
 
-## Arten von Datenquellen {/* #source-types */}
+## Datenquellen {/* #source-types */}
 
-| Quelle | Geeignet, wenn … |
-| --- | --- |
-| **Online URL** | der Wettkampf über die Sporttech-Online-Ergebnisse verfügbar ist. |
-| **Offline OVS** | auf dem Wettkampfrechner ein OVS-Server im lokalen Netzwerk läuft. |
-| **File Import** | ein Sporttech-Excel-Export als Datei vorliegt. |
+| Quelle | Verwendung | Aktualisierung |
+| --- | --- | --- |
+| Online-Sporttech | Das Event ist online verfügbar. | Automatisch oder manuell von Sporttech. |
+| Offline-OVS | Ein Sporttech-OVS-Server läuft im lokalen Netzwerk. | Automatisch oder manuell, solange der Server erreichbar ist. |
+| Dateiimport | Ein Sporttech-Excel-Export liegt vor. | Aktualisierte Arbeitsmappe über **Aktuelle Datei aktualisieren…** auswählen. |
+
+Siehe [Online-Events](online-event.md), [Offline-OVS](offline-ovs.md) und [Dateiimport](file-import.md).
 
 ## Importstatus {/* #import-status */}
 
-Nach dem Import zeigt die Statusleiste:
-
-- Die Bezeichnung der aktuellen Quelle.
-- Den Quellentyp und die URL oder den Dateipfad der Quelle.
-- Die Anzahl erkannter Wettkampfklassen und druckbarer Wettkampfeinträge.
-- Warnungen und manuelle Korrekturen.
-- Den Status der aktiven Vorlage.
+Prüfen Sie nach dem Import Eventtitel, Quelle und Zeilenanzahl und öffnen Sie danach Quick Check. Scheitert der Import, bleiben die zuvor geladenen Daten nutzbar; ein Aktualisierungsversuch allein macht sie noch nicht aktuell.
 
 ## Daten aktualisieren {/* #refreshing-data */}
 
-Aktualisiere die Daten, wenn sie sich nach dem ersten Import ändern. Für Online-Quellen und lokale Live-Quellen steht auch eine automatische Aktualisierung zur Verfügung.
+Das Aktualisierungssymbol in der Kopfzeile funktioniert in Event, Quick Check, Produzieren und Studio. Es aktualisiert die geladene Quelle und zeigt den Status an. Eine Aktualisierung desselben Events erhält manuelle Urkundenkorrekturen. Das Laden eines anderen Events löscht sie. Bei Excel unterscheiden sich ein neuer Dateiimport und die ausdrückliche Aktualisierung der aktuellen Datei.
 
-Bei Dateiimporten greift die Aktualisierung auf die bereits geladenen Dateidaten zurück. Wenn du einen neueren Export erhältst, musst du diese neue Datei importieren.
+Die [Auto-Aktualisierung](auto-refresh.md) ist für Online- und OVS-Quellen standardmäßig aktiviert; Excel-Dateien müssen manuell ausgewählt werden.

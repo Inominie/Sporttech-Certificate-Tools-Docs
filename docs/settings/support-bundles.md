@@ -44,3 +44,5 @@ Generated PDFs and uploaded template/source files are not copied into the ZIP, b
 Open **Settings** and click **Create Support Bundle**.
 
 Share the bundle only through the approved beta support channel.
+
+A support bundle is not a backup. Export important [Studio templates](../certificate-studio/sharing-templates.md) separately. The optional import data map is for technical source diagnostics; use [Check mappings](../certificate-studio/preview-data.md) to inspect certificate fields for a chosen class and entry.

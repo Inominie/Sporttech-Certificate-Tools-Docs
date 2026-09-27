@@ -7,40 +7,56 @@ sidebar_position: 2
 
 ## Aktives Projekt {/* #active-project */}
 
-Die aktuell geladenen Wettkampfdaten und der zugehörige lokale Zustand in der App.
+Die für die aktuelle Sitzung geladenen Eventdaten und der Prüfzustand. Es ist kein dauerhaftes Eventarchiv.
 
-## Automatische Aktualisierung {/* #auto-refresh */}
+## Auto-Aktualisierung {/* #auto-refresh */}
 
-Ein Live-Import-Modus, der Online- oder Offline-Wettkampfdaten in regelmäßigen Abständen neu lädt.
+Regelmäßiges Neuladen des aktuellen Online-/OVS-Events. Standardmäßig aktiv; erhält Urkundenkorrekturen desselben Events.
 
-## Urkundeneintrag {/* #certificate-row */}
+## Urkundenzeile {/* #certificate-row */}
 
-Ein druckbarer Urkundeneintrag, zum Beispiel für eine einzelne Person, ein Synchronpaar oder ein Team.
+Ein importierter Eintrag für die Urkundenerstellung: Einzelathlet, Synchronpaar oder Team. Mehrere Exemplare können sich auf dieselbe Zeile beziehen.
 
-## Certificate Studio {/* #certificate-studio */}
+## Urkunden-Studio {/* #certificate-studio */}
 
-Der App-Bereich zum Verwalten von Vorlagen, Platzhaltern, festen Texten, Medien und Layouts.
+Der Editor für gespeicherte Urkundenvorlagen, Datenzuordnungen und Layoutvorschauen.
 
-## Wettkampfklasse {/* #class */}
+## Klasse {/* #class */}
 
-Eine für die Prüfung und den Druck verwendete Wettkampfgruppe, etwa eine Kombination aus Disziplin, Kategorie und Geschlecht.
+Eine Wettkampfgruppe aus Sporttech. Die Auswahl von Klasse und Eintrag bildet die Grundlage für die Prüfung der Vorschaudaten.
 
 ## Klassenliste {/* #class-list */}
 
-Eine von der App erzeugte PDF-Liste, unabhängig von den Urkundenseiten.
+Eine Start- oder Ergebnisliste im Listenlayout der App statt einer Urkundenvorlage.
 
 ## OVS {/* #ovs */}
 
-Ein am Wettkampfort eingesetztes Offline-Wertungssystem. Die App kann Daten von einem erreichbaren lokalen OVS-HTTP-Server importieren.
+Sporttechs lokales Wettkampfsystem. Diese App verbindet sich mit dessen laufendem HTTP-Dienst im Veranstaltungsnetzwerk.
 
 ## Platzhalter {/* #placeholder */}
 
-Ein dynamisches Vorlagenfeld, das bei der PDF-Erstellung mit importierten Daten gefüllt wird.
+Ein Textelement oder Teil eines kombinierten Texts, dessen Wert aus einer ausgewählten Datenquelle kommt. Editorname und Datenzuordnung sind getrennt.
 
-## Support-Paket {/* #support-bundle */}
+## Supportpaket {/* #support-bundle */}
 
-Eine ZIP-Datei mit Diagnosedaten für den Beta-Support. Sie kann personenbezogene Daten oder Wettkampfdaten enthalten und sollte vor dem Weitergeben geprüft werden.
+Eine ZIP-Datei mit Diagnoseinformationen, die Teilnehmerdaten enthalten kann. Sie dient dem privaten Support und ist keine vollständige Sicherung.
 
 ## Vorlagenprofil {/* #template-profile */}
 
-Die gespeicherte Layoutdefinition, die festlegt, wie die App Urkundeninhalte auf einer Seite rendert.
+Eine ältere/interne Bezeichnung für eine gespeicherte Urkundenvorlage. Verwenden Sie im aktuellen Ablauf Speichern, Umbenennen, Kopieren und Exportieren im Studio.
+
+## Gestaltungsmuster {/* #design-sample */}
+
+Ein als Ausgangsdesign importiertes PDF- oder Word-Dokument. Vor dem Einsatz als fertige Vorlage benötigt es eine Prüfung und ausdrückliche Datenzuordnungen.
+
+## Studio-Paket {/* #studio-package */}
+
+Eine Datei im Format `.sct-template` mit einem übertragbaren gespeicherten Design und enthaltenen Dateien. Sie enthält weder die Event-Sitzung noch Druckereinstellungen.
+
+## Layoutbox {/* #layout-box */}
+
+Ein Bereich, der geordnete Textzeilen automatisch anordnet, optional leere Zeilen ausblendet und Abstände oder Schriftgröße anpasst.
+
+## Vordruck-Referenzgrafik {/* #preprinted-reference-artwork */}
+
+Ein im Studio sichtbares Bild, das vorhandene Papiergrafik darstellt. Als Vordruck markiert, wird es aus erzeugten PDFs ausgelassen.

@@ -1,29 +1,20 @@
 ---
-title: "Gruppen und Finalergebnisse"
+title: "Gruppen und Finals"
 sidebar_position: 3
 ---
 
-# Gruppen und Finalergebnisse {/* #groups-and-finals */}
-
-Mit Quick Check prüfst du, wie importierte Sporttech-Wettkampfdaten zu Urkundenklassen zusammengefasst werden und wie Finalergebnisse dargestellt sind.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/quick-check.png" alt="Tabelle Class Health mit Wettkampfklassen, Anzahl der Finaleinträge und Aktionen zur Ausgabe" />
-  <figcaption>Die Tabelle Class Health gruppiert Zeilen nach druckbarer Wettkampfklasse und zeigt Anzahl, Bereitschaftsstatus und Ausgabeaktionen je Klasse.</figcaption>
-</figure>
+# Gruppen und Finals {/* #groups-and-finals */}
 
 ## Klassengruppen {/* #class-groups */}
 
-Importierte Wettkampfeinträge werden nach Urkundenklasse gruppiert. Du kannst eine Klasse in der Tabelle **Class Health** öffnen.
-
-Nutze die Gruppenaktionen, wenn ein Klassenname oder eine Gruppierung vor der PDF-Ausgabe korrigiert werden muss.
+Quick Check zeigt die aus Sporttech importierten Wettkampfklassen und Gruppen. Wählen Sie eine Klasse, um Einträge, Warnungen und verfügbare Phasen zu prüfen. Sie können eine Gruppe vom Druck ausschließen und später wiederherstellen; dadurch ändert sich die Druckauswahl, nicht die Wettkampfstruktur.
 
 ## Gruppen zusammenführen {/* #merging-groups */}
 
-Beim Zusammenführen von Gruppen kann die App die Platzierungen neu berechnen. Dieses Verhalten stellst du unter **Settings > Review Corrections** ein.
+Die aktuelle App führt Sporttech-Gruppen **nicht** zusammen, benennt sie nicht um und berechnet ihre Platzierungen nicht neu. Frühere Beta-Anleitungen beschrieben inzwischen entfernte Bedienelemente. Ändern Sie Wettkampfstruktur oder Wertung in Sporttech und aktualisieren Sie das Event.
 
-Wenn die Neuberechnung deaktiviert ist, behalten die Teilnehmenden nach Gruppenänderungen ihre importierten oder manuell korrigierten Platzierungen.
+## Final-Zeilen {/* #final-rows */}
 
-## Finaleinträge {/* #final-rows */}
+Qualifikations- und Finalergebnisse behalten die Bedeutung ihrer Quelle. Eine Final-Zeile ist kein Anlass, ihren Qualifikationswert lokal zu addieren. Wählen Sie bei einer Ergebnisliste die gewünschte Phase oder die gemeinsame Ansicht für Qualifikation und Finale. Siehe [Klassenlisten](../produce/class-lists.md).
 
-Der Filter **Finals** zeigt Einträge, die als Finalergebnisse gekennzeichnet sind. Prüfe sie vor der Urkundenerstellung besonders sorgfältig, wenn die Wertungsregeln für Vorkampf und Finale die gedruckte Gesamtpunktzahl beeinflussen.
+Prüfen Sie Klasse, Phase, Punkte und Platzierung zusammen, insbesondere wenn dieselben Athleten in mehreren Runden vorkommen.

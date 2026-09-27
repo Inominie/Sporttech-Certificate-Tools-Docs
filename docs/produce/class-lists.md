@@ -4,20 +4,18 @@ sidebar_position: 3
 
 # Class lists
 
-Use **Class Lists** when producing printable lists instead of certificate pages.
-
 ## List type
 
-Class lists can be used for result-style output. The available options depend on the imported data and current app version.
+Choose **Start Lists** for a participation list or **Result Lists** for results. These use the selected event entries without applying certificate copy quantities.
 
 ## Phase
 
-Choose the phase that matches the output you need. The default result list option uses **Combined** when available.
+For result lists, choose the available qualification, final or combined qualification-and-final view. The combined view is the default. It presents Sporttech phase results; it does not add qualification and final scores or calculate a new ranking.
 
 ## Scope
 
-Class list scope can include all groups or a selected group. The page count updates based on the current selection.
+Select the relevant class or wider available scope. Check class names, included entries and the chosen phase in the PDF preview. Review missing or incorrect results in Sporttech and refresh before regenerating.
 
 ## Template selection
 
-Certificate templates are not used for class list layout. Class lists use the app's built-in PDF list renderer.
+Class lists use the app's list layout rather than the certificate template selected for Single, Synchronized or Team. Certificate artwork, layout boxes, copy counts and certificate print-order controls do not configure these lists.

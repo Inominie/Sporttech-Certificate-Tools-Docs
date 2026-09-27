@@ -1,27 +1,22 @@
 ---
-title: "Sporttech-Online-Wettkämpfe"
+title: "Online-Sporttech-Events"
 sidebar_position: 2
 ---
 
-# Sporttech-Online-Wettkämpfe {/* #online-sporttech-events */}
+# Online-Sporttech-Events {/* #online-sporttech-events */}
 
-Nutze **Online URL**, wenn der Wettkampf über die Sporttech-Online-Ergebnisse verfügbar ist.
+## Import per URL oder Event-ID {/* #import-by-url-or-event-id */}
 
-## Über URL oder Wettkampf-ID importieren {/* #import-by-url-or-event-id */}
+Öffnen Sie **Event → Online-URL**, fügen Sie eine unterstützte Sporttech-Event-URL oder Event-ID ein und wählen Sie **Live-Event importieren**. Prüfen Sie vor der Ausgabe den importierten Titel und die Klassen.
 
-1. Öffne **Event**.
-2. Wähle **Online URL**.
-3. Füge die Sporttech-Wettkampf-URL oder die Wettkampf-ID ein.
-4. Klicke auf **Import Live Event**.
+## Event-Browser {/* #event-browser */}
 
-Die App ruft die Wettkampfdaten ab und wandelt sie in druckbare Einträge für die Prüfung und Ausgabe um.
+Im Browser ist **Deutschland** als Land vorausgewählt. Passen Sie Land, Jahr, Sportart und Suchtext an, um den Wettkampf zu finden.
 
-## Wettkampfsuche {/* #event-browser */}
+Grenzen Sie mit **Alle Events**, **Läuft heute**, **Bevorstehend** oder **Vergangen** den Zeitraum ein. Events, deren Datum den heutigen Tag einschließt, stehen hervorgehoben am Anfang, auch in den Ansichten für bevorstehende oder vergangene Events. Die übrigen Suchfilter gelten weiterhin.
 
-Der Bereich Event enthält auch eine Wettkampfsuche. Suche nach Jahr, Land, Sportart, Status oder einem Suchtext und importiere einen aufgelisteten Wettkampf direkt.
+„Läuft heute“ basiert auf den Eventdaten. Es bedeutet nicht, dass Sporttech einen gerade laufenden Wertungsbetrieb bestätigt hat. Prüfen Sie vor dem Drucken die geladenen Daten und den Aktualisierungsstatus.
 
 ## Online-Daten aktualisieren {/* #refresh-online-data */}
 
-Klicke auf **Refresh Online Data**, um die neuesten Online-Daten des zuvor importierten Wettkampfs abzurufen.
-
-Nutze die automatische Aktualisierung nur, solange sich die Wettkampfdaten noch ändern und du das aktive Projekt regelmäßig auf den neuesten Stand bringen möchtest.
+Aktualisieren Sie das geladene Event über das Symbol in der Kopfzeile. Die [Auto-Aktualisierung](auto-refresh.md) ist standardmäßig eingeschaltet und wird in den Einstellungen konfiguriert. Eine Aktualisierung desselben Events erhält manuelle Urkundenkorrekturen; der Wechsel zu einem anderen Event löscht sie.

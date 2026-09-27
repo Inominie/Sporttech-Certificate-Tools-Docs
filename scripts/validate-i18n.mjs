@@ -144,6 +144,20 @@ export function validateI18n(root = siteDir) {
   });
   check(messageIds.size > 0, 'No translatable homepage messages found.');
   for (const id of Object.keys(code).filter((id) => id.startsWith('homepage.'))) check(messageIds.has(id), `Orphaned homepage message: ${id}`);
+  const downloadIds = new Set();
+  if (existsSync(join(root, 'src/pages/download.tsx'))) {
+    visit(parse('src/pages/download.tsx', ts.ScriptKind.TSX), (node) => {
+      if (!ts.isCallExpression(node) || !ts.isIdentifier(node.expression) || node.expression.text !== 'translate') return;
+      const id = string(property(node.arguments[0], 'id'));
+      const message = string(property(node.arguments[0], 'message'));
+      check(Boolean(id && message), 'Download translate() needs a literal id and English message.');
+      if (!id || !message) return;
+      downloadIds.add(id);
+      check(typeof code[id]?.message === 'string', `Missing German download message: ${id}`);
+      if (typeof code[id]?.message === 'string') check(JSON.stringify(placeholders(message)) === JSON.stringify(placeholders(code[id].message)), `${id}: interpolation placeholders differ.`);
+    });
+    for (const id of Object.keys(code).filter((id) => id.startsWith('downloads.'))) check(downloadIds.has(id), `Orphaned download message: ${id}`);
+  }
   visit(parse('sidebars.ts'), (node) => {
     if (ts.isObjectLiteralExpression(node) && string(property(node, 'type')) === 'category') {
       const label = string(property(node, 'label'));
@@ -179,13 +193,13 @@ export function validateI18n(root = siteDir) {
   const preset = elements(property(config, 'presets')).map(elements).find((items) => string(items[0]) === 'classic');
   check(property(property(preset?.[1], 'docs'), 'editLocalizedFiles')?.kind === ts.SyntaxKind.TrueKeyword, 'Edit links must target translated files.');
   if (errors.length) throw new Error(`Localization validation failed:\n${errors.map((message) => `- ${message}`).join('\n')}`);
-  return {documents: sourceFiles.length, homepageMessages: messageIds.size, stableAnchors: anchors};
+  return {documents: sourceFiles.length, homepageMessages: messageIds.size, downloadMessages: downloadIds.size, stableAnchors: anchors};
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     const result = validateI18n();
-    console.log(`i18n OK: ${result.documents} German documents, ${result.homepageMessages} homepage messages, ${result.stableAnchors} stable anchors; routes, code examples, media, navigation and placeholders checked.`);
+    console.log(`i18n OK: ${result.documents} German documents, ${result.homepageMessages} homepage messages, ${result.downloadMessages} download messages, ${result.stableAnchors} stable anchors; routes, code examples, media, navigation and placeholders checked.`);
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

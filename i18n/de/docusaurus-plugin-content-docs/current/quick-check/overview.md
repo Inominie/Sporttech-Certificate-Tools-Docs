@@ -5,14 +5,14 @@ sidebar_position: 1
 
 # Überblick: Datenprüfung {/* #quick-check-overview */}
 
-Nutze **Quick Check**, um importierte Sporttech-Wettkampfdaten zu prüfen, bevor du PDFs erzeugst.
+Verwenden Sie **Quick Check**, um importierte Sporttech-Wettkampfdaten zu prüfen, bevor Sie PDFs erzeugen.
 
 <figure className="app-screenshot">
   <img src="/Sporttech-Certificate-Tools-Docs/img/app/quick-check.png" alt="Bereich Quick Check mit Statusübersichten zum Wettkampf und der Tabelle Class Health" />
   <figcaption>Quick Check bietet eine bildschirmfüllende Übersicht darüber, ob die Daten für die PDF-Ausgabe bereit sind.</figcaption>
 </figure>
 
-## Was du prüfen solltest {/* #what-to-check */}
+## Was Sie prüfen sollten {/* #what-to-check */}
 
 Die Übersicht fasst Folgendes zusammen:
 
@@ -26,17 +26,19 @@ Die Übersicht fasst Folgendes zusammen:
 
 ## Klassenübersicht (Class Health) {/* #class-health */}
 
-Die Tabelle **Class Health** gruppiert importierte Wettkampfeinträge nach Wettkampfklasse. Öffne eine Klasse, um die zugehörigen Personen, Teams oder Paare direkt dort zu prüfen.
+Die Tabelle **Klassenstatus** gruppiert importierte Wettkampfeinträge nach Wettkampfklasse. Öffnen Sie eine Klasse, um die zugehörigen Personen, Teams oder Paare direkt dort zu prüfen.
 
-Mit den Filtern kannst du die Anzeige eingrenzen:
+Mit den Filtern können Sie die Anzeige eingrenzen:
 
-- **All**: alle Zeilen.
-- **Overrides**: Zeilen mit manuellen Änderungen.
-- **Removed**: vom Druck ausgeschlossene Zeilen.
+- **Alle**: alle Zeilen.
+- **Überschreibungen**: Zeilen mit manuellen Änderungen.
+- **Entfernt**: vom Druck ausgeschlossene Zeilen.
 - **Finals**: Finaleinträge.
 
-Im Suchfeld kannst du nach Namen, Vereinen und Klassenbezeichnungen suchen.
+Im Suchfeld können Sie nach Namen, Vereinen und Klassenbezeichnungen suchen.
 
 ## Detailansicht {/* #details-drawer */}
 
-Wenn du eine Zeile auswählst, können zusätzliche Informationen angezeigt werden: eine Zusammenfassung, Übungen, Kampfrichterdaten und unverarbeitete Quelldaten, soweit Sporttech diese bereitstellt.
+Wenn Sie eine Zeile auswählen, können zusätzliche Informationen angezeigt werden: eine Zusammenfassung, Übungen, Kampfrichterdaten und unverarbeitete Quelldaten, soweit Sporttech diese bereitstellt.
+
+Verwenden Sie [manuelle Korrekturen](corrections.md) für Namen, Vereine und Urkundenhinweise. Punkte, Platzierungen und Gruppen bleiben in Sporttech maßgeblich. Das Aktualisierungssymbol in der Kopfzeile aktualisiert dasselbe Event und erhält Urkundenkorrekturen. Das Studio bietet eine eigene [Vorschauauswahl nach Klasse und Eintrag](../certificate-studio/preview-data.md) zur Prüfung von Vorlagenzuordnungen.

@@ -4,29 +4,20 @@ sidebar_position: 4
 
 # File import
 
-Use **File Import** when live data is unavailable or when you receive an exported file from the event system.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/event-import.png" alt="File Import tab in the Event screen with a loaded Sporttech Excel export" />
-  <figcaption>After a file import, the status strip confirms the source file, source type, detected classes, warning count, and selected template.</figcaption>
-</figure>
-
 ## Supported file type
 
-The current beta supports Sporttech Excel exports.
-
-Direct `event.j3` import is planned but not implemented yet.
+Use a Sporttech Excel export in `.xlsx` format. A PDF results list or an OVS `event.j3` file is not an event-data import. PDF and Word files can instead be [design samples for Studio](../certificate-studio/design-samples.md).
 
 ## Import a file
 
-1. Open **Event**.
-2. Select **File Import**.
-3. Click **Import File**.
-4. Choose the Sporttech Excel export.
-5. Review the import status and warnings.
+1. Open **Event → File Import**.
+2. Choose **Load a new event file** and select the workbook.
+3. Check the event and classes in Quick Check.
+
+A new event file starts a new review session and clears previous manual corrections and print selection.
 
 ## Replacing imported data
 
-Importing another file replaces the active imported data. Saved templates are not deleted.
+For a newer export of the **same event**, use **Refresh current file…**, or the header's refresh icon, and select the updated workbook. This keeps existing certificate corrections for that event. Only use this action for the same competition; use a new import for a different event.
 
-If the event sends a corrected export, import the corrected file and repeat the Quick Check review.
+Excel files do not update automatically. Export the latest results from Sporttech and explicitly select that workbook. A failed refresh keeps the previous usable data.

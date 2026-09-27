@@ -4,32 +4,19 @@ sidebar_position: 3
 
 # Basic workflow
 
-This is the recommended end-to-end workflow for producing certificates.
-
-1. Open the app.
-2. Go to **Event**.
-3. Import competition data from an online event, offline OVS server, or file.
-4. Open **Certificate Studio** and choose or create a certificate template.
-5. Confirm that placeholder fields are positioned correctly.
-6. Go to **Quick Check**.
-7. Review imported event data, classes, warnings, finals, removed entries, and manual corrections.
-8. Go to **Produce**.
-9. Choose **Certificates** or **Class Lists**.
-10. Select the required scope, such as all classes, one class, or one athlete/team.
-11. Click **Preview PDF**.
-12. Check the preview.
-13. Click **Save PDF** when the preview is correct.
-14. Print from the app or open the saved PDF in the operating system PDF viewer.
+1. In **Event**, load an online Sporttech event, local OVS event or Excel export.
+2. In **Quick Check**, inspect the relevant class and entries. Correct names, clubs or certificate notes if needed. Resolve incorrect scores or placements in Sporttech, then refresh.
+3. Open **Certificate Studio**. Create a template, use a PDF/Word design sample or import a shared Studio template. Set its name and category: Single, Synchronized or Team.
+4. Choose the preview **competition/class**, then an **entry**. Switch to real data and check the mappings and layout. Save the template.
+5. Return to **Produce**. Choose Certificates, Start Lists or Result Lists and the required scope. For certificates, choose the category's template, number of copies and print order.
+6. Inspect the PDF preview. Save it if you need a file, or print directly from the preview. Use one copy in the printer dialog when the PDF already contains the required certificate copies.
 
 ## Operator habit
 
-Preview before saving or printing. The preview step confirms the selected template, selected rows, output type, and approximate page count.
+Keep auto-refresh enabled for online and OVS events. It defaults to 30 seconds and keeps certificate corrections for the same event. Before an important print run, use the header's refresh icon and confirm the last successful refresh. For an Excel event, supply an updated export.
+
+Print one test sheet on the actual printer and paper before a full class. Check page scale, margins and any preprinted design. Use [print calibration](../produce/print-calibration.md) for a consistent printer offset.
 
 ## When to return to Quick Check
 
-Return to **Quick Check** when:
-
-- A class has warnings.
-- An athlete/team should not receive a certificate.
-- A place, class name, athlete name, or club needs a manual correction.
-- Final and qualification data need special attention.
+Return when entries are missing, warnings appear or Sporttech results change. A refresh may invalidate a previously generated PDF; check the new preview before printing. Loading a different event or restarting clears manual corrections. [Saved outputs and templates persist](../reference/behavior-contracts.md).

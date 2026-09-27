@@ -5,33 +5,28 @@ sidebar_position: 4
 
 # Vorschau, Speichern und Drucken {/* #preview-save-and-print */}
 
-Prüfe vor dem Speichern oder Drucken immer die Vorschau.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/produce-preview.png" alt="PDF-Vorschau mit Aktionen zum Speichern, Drucken, Öffnen der Datei und Öffnen des Ordners" />
-  <figcaption>Nach dem Erzeugen der Vorschau folgen die Aktionen zum Speichern, Drucken und Öffnen der Datei oder des Ausgabeordners.</figcaption>
-</figure>
-
 ## Vorschau {/* #preview */}
 
-Klicke auf **Preview PDF**, um die aktuelle Auswahl zu rendern. In der Vorschau prüfst du:
+Die Vorschau erzeugt ein temporäres PDF für die aktuellen Daten und Ausgabeeinstellungen. Ein Wechsel von Einträgen, Vorlage, Exemplaren oder Reihenfolge kann es neu erzeugen. Warten Sie auf die aktuelle Vorschau; ein früheres PDF enthält spätere Korrekturen nicht automatisch.
 
-- Dokumenttyp.
-- Ausgewählte Zeilen.
-- Aktive Vorlage bei Urkunden.
-- Ungefähre Seitenzahl.
-- Funktionsstatus des Renderers.
+Die Studio-Arbeitsfläche mit echten Daten hilft bei der Gestaltung. Ein erzeugtes PDF prüft die tatsächliche Ausgabe einschließlich Schriftlayout und Seitenreihenfolge. Als bereits vorgedruckt markierte Bilder fehlen in **allen erzeugten PDFs**, auch in Vorschauen.
+
+Ein Vorschau-/Test-PDF bleibt temporär, auch wenn Sie es in einer anderen Anzeige öffnen. Es wird bei der Sitzungsbereinigung gelöscht, sofern es nicht ausdrücklich gespeichert oder durch eine erfolgreiche Druckübergabe aufbewahrt wurde.
 
 ## Speichern {/* #save */}
 
-Klicke auf **Save PDF**, wenn die Vorschau korrekt ist.
+Wählen Sie **PDF speichern**, um das erzeugte Dokument zu behalten. Gespeicherte PDFs bleiben nach einem Neustart erhalten. Existiert bereits eine gleichnamige Datei, beachten Sie den Namens-/Überschreibkonflikt, statt von einer Ersetzung auszugehen. Über Ordner öffnen finden Sie gespeicherte Ausgaben.
 
-Falls bereits eine Datei mit demselben Namen vorhanden ist, fragt die App, ob du eine Kopie speichern oder die vorhandene Datei überschreiben möchtest.
+Das Speichern eines PDFs speichert keine ungesicherten Studio-Änderungen und erzeugt keine übertragbare Vorlage. Verwenden Sie dafür Speichern im Studio und den [Vorlagenexport](../certificate-studio/sharing-templates.md).
 
 ## Drucken {/* #print */}
 
-Klicke auf **Print**, nachdem die Vorschau gespeichert wurde. Die App verwendet die Druckfunktion des Betriebssystems. Ein direkter Druck ohne Dialog ist derzeit nicht umgesetzt.
+Sie können die aktuelle Vorschau direkt drucken; vorheriges Speichern ist optional. Ein erfolgreich übergebener Desktop-Druckauftrag bewahrt sein PDF auf und wird im Druckverlauf erfasst. Abbruch oder Fehler zählen nicht als erfolgreicher aufbewahrter Druck. Die Übergabe bestätigt die Annahme durch das Betriebssystem, nicht die physische Papierausgabe.
+
+Bei [automatischen Urkundenexemplaren](certificates.md#number-of-copies) stellen Sie im Druckdialog **ein Exemplar** ein. Verwenden Sie für vorgedrucktes Papier Originalgröße/100 % Skalierung und testen Sie zuvor die [Kalibrierung](print-calibration.md).
 
 ## Dateien öffnen {/* #open-files */}
 
-Nutze **Open PDF** für das gespeicherte Dokument oder **Open Folder** für den Ausgabeordner.
+**PDF öffnen** zeigt die aktuelle Ausgabe extern; **Ordner öffnen** öffnet das Ausgabeverzeichnis. Externe PDF-Anzeigen und Druckdialoge besitzen gegebenenfalls eigene Skalierungs- oder Exemplareinstellungen. Prüfen Sie diese vor dem Druck.
+
+Gespeicherte und gedruckte Dateien zählen zum eingestellten Speicherlimit. Ist der Speicher voll, sichern Sie benötigte Dateien anderweitig und entfernen Sie unerwünschte Ausgaben gezielt; die App verwirft aufbewahrte Urkunden nicht automatisch, um Platz zu schaffen.

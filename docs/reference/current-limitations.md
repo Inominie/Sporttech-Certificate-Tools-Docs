@@ -4,33 +4,30 @@ sidebar_position: 1
 
 # Current limitations
 
-This page tracks important beta limitations for operators.
-
 ## Distribution
 
-- Builds are unsigned.
-- The app can check for beta updates, but it does not download, install, restart, or replace itself.
-- macOS and Windows may show operating system trust warnings.
+The app is in beta for testing clubs. Current Mac releases are Developer ID signed and notarized. Windows installers remain unsigned and may trigger SmartScreen or organizational restrictions. Use the [official download page](https://inominie.github.io/Sporttech-Certificate-Tools-Docs/download) and [update guidance](../settings/checking-for-updates.md).
 
 ## Import
 
-- Direct `event.j3` import is not implemented yet.
-- Offline OVS support requires a reachable local OVS HTTP server.
-- File import currently targets Sporttech Excel exports.
+Event sources are Sporttech online, local OVS and Sporttech Excel exports. Direct OVS database import and other competition providers are not currently supported. Online events need internet access; OVS needs access to its local server. Excel refresh requires a newly exported workbook selected by the user.
 
 ## Printing
 
-- Direct silent printing is not implemented.
-- Users print saved PDFs through the app's print flow or the operating system PDF viewer.
+PDF and printer scaling can affect alignment. Test the actual paper and printer before a batch. Reference artwork for preprinted paper is omitted from the PDF itself, not hidden only at print time.
+
+Automatic team quantities need a usable member count or an explicit quantity. Automatic copies repeat the same team certificate. Physical printing success cannot be inferred from submission to the operating system.
 
 ## Templates
 
-- PDF templates can be used as certificate backgrounds.
-- DOCX import is a compatibility path for extracting mail-merge placeholders and basic fixed text.
-- PDF output is generated through the bundled Typst runtime.
+Direct Word sample import needs LibreOffice; exporting from Word to PDF avoids that dependency. PDF sample import uses the first page and is not lossless. There is no OCR for scanned text, and some artwork remains an image rather than editable text.
+
+Templates do not automatically guess Sporttech mappings. Font availability can differ between computers. Resolve missing fonts and review the layout after transfer. Layout boxes arrange text in a single column and cannot fit unlimited content; overflow must be resolved before output.
+
+Portable Studio packages support migration of supported historical formats. An older app may reject newer packages. Keep exported backups and update the receiving app when required.
 
 ## Data
 
-Imported data, templates, and generated PDFs are local user data. Avoid sharing support bundles or generated files outside the intended event or beta support context.
+Sporttech remains authoritative for scoring and groups. Certificate corrections are session-only, even though they survive same-event refresh. Restarting or changing event clears them. Saved templates and saved/printed PDFs persist.
 
-The detailed lifecycle, storage-limit, import, scoring, and template-fidelity behavior is documented in [Behavior contracts](/docs/reference/behavior-contracts).
+The installed desktop app is the supported operator workflow. A separately hosted multi-user web service is not part of this beta. See [behavior contracts](behavior-contracts.md) for persistence details.

@@ -35,5 +35,8 @@
   "copyright": {
     "message": "Copyright © Mitwirkende von Sporttech Certificate Tools. Erstellt mit Docusaurus.",
     "description": "Year omitted intentionally: JSON translations cannot evaluate the dynamic year in the English configuration."
+  },
+  "link.item.label.Download the app": {
+    "message": "App herunterladen"
   }
 }

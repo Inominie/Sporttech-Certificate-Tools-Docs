@@ -1,95 +1,52 @@
 ---
-title: "Verbindliches App-Verhalten"
+title: "Verhaltensregeln"
 sidebar_position: 1
 ---
 
-# Verbindliches App-Verhalten {/* #behavior-contracts */}
+# Verhaltensregeln {/* #behavior-contracts */}
 
-Diese Seite beschreibt das Verhalten der App, auf das du dich während der Beta verlassen kannst.
+Diese Regeln beschreiben das verlässliche Verhalten der aktuellen Beta. Sie unterscheiden dauerhaft gespeicherte Dateien von temporärer Eventarbeit.
 
 ## Lebenszyklus der Laufzeitdaten {/* #runtime-data-lifecycle */}
 
-Sporttech Certificate Tools unterscheidet zwei Arten lokaler Daten:
+| Daten | Aktualisierung desselben Events | Anderes Event oder neuer Dateiimport | App-Neustart |
+| --- | --- | --- | --- |
+| Event-Quelldaten | Aus der Quelle aktualisiert | Ersetzt | Gelöscht; Event erneut laden |
+| Manuelle Urkundenkorrekturen | Erhalten | Gelöscht | Gelöscht |
+| Gültige Event-/Vorschauauswahl und Exemplarüberschreibungen | Soweit weiterhin anwendbar erhalten | Zurückgesetzt | Zurückgesetzt |
+| Gespeicherte Studio-Vorlagen und enthaltene Dateien | Erhalten | Erhalten | Erhalten |
+| Ausdrücklich gespeicherte oder erfolgreich gedruckte PDFs | Erhalten | Erhalten | Erhalten |
+| Temporäre Vorschau-/Test-PDFs | Können ungültig werden | Nicht als Eventunterlagen aufbewahrt | Gelöscht |
+| App-Einstellungen und Druckverlauf | Erhalten | Erhalten | Erhalten |
 
-- **Dauerhafte Einstellungen und Vorlagen:** App-Einstellungen, gespeicherte Vorlagenprofile, hochgeladene Vorlagendateien und Medien sowie Standardwerte für die Druckkalibrierung.
-- **Aktive Projektdaten:** importierte Urkundeneinträge, Importwarnungen, Quellenmetadaten, Import-Datenzuordnungen, Quick-Check-Korrekturen, Vorschauen, Druckverlauf und erzeugte PDFs.
+Wählen Sie für einen aktualisierten Excel-Export desselben Events **Aktuelle Datei aktualisieren…**. Das Laden einer neuen Datei ist ein neues Event. Ungespeicherte Studio-Änderungen müssen vor dem Verlassen oder Neustart gespeichert werden; sie sind keine dauerhaften Vorlagen.
 
-Aktive Projektdaten sind bewusst temporär. Beim Start der Desktop-App beginnt ein neues, leeres aktives Projekt. Gespeicherte Vorlagen und Einstellungen bleiben verfügbar.
+## Importregeln {/* #import-contracts */}
 
-| Vorgang | Importierte Zeilen | Warnungen und Quellenmetadaten | Quick-Check-Korrekturen | Vorschauen und erzeugte PDFs | Gespeicherte Vorlagen | Einstellungen |
-| --- | --- | --- | --- | --- | --- | --- |
-| Start der Desktop-App | Gelöscht | Gelöscht | Gelöscht | Gelöscht | Beibehalten | Beibehalten |
-| Import eines neuen Wettkampfs | Ersetzt | Ersetzt | Gelöscht | Gelöscht | Beibehalten | Beibehalten |
-| Aktuelle Live- oder OVS-Quelle aktualisieren | Ersetzt | Ersetzt | Gelöscht | Gelöscht | Beibehalten | Beibehalten |
-| Aktives Projekt leeren | Gelöscht | Gelöscht | Gelöscht | Gelöscht | Beibehalten | Beibehalten |
-| Vorlage löschen | Unverändert | Unverändert | Unverändert | Unverändert, außer hinsichtlich der ausgewählten Vorlage | Aktualisiert | Unverändert |
+Der Online-Import verwendet unterstützte Sporttech-Eventquellen. Offline-OVS benötigt einen erreichbaren lokalen HTTP-Server; der Dateiimport akzeptiert Sporttech-Arbeitsmappen im Format `.xlsx`. Ein direkter Import von `event.j3` ist nicht verfügbar. Ein fehlgeschlagener Import oder eine fehlgeschlagene Aktualisierung ersetzt das bisher nutzbare Event nicht durch unvollständige Ergebnisse.
 
-Manuelle Korrekturen sind Prüfentscheidungen innerhalb des aktiven Projekts und keine langfristig gespeicherten Projektaufzeichnungen. Speichere erzeugte PDFs oder erstelle ein Support-Paket, bevor du die App schließt, wenn du die aktuelle Sitzung für den Wettkampfbetrieb oder den Beta-Support sichern musst.
+Die automatische Aktualisierung ist für Online-/OVS-Quellen standardmäßig alle 30 Sekunden aktiv. Sie beschafft keinen neuen Excel-Export. Der Status zeigt Erfolg oder Fehler; nach einem Fehler erhaltene alte Daten sind nicht mit aktuellen Ergebnissen gleichzusetzen.
 
-## Verbindliche Importregeln {/* #import-contracts */}
+## Identität, Phasen und Wertung {/* #identity-phases-and-scoring */}
 
-- Der Online-Import akzeptiert öffentliche Wettkampf-API-URLs von `sporttech.io` sowie Wettkampf-IDs, die auf diese API aufgelöst werden können.
-- Der Offline-OVS-Import akzeptiert HTTP-Basis-URLs von OVS-Servern im lokalen oder privaten Netzwerk. Die automatische Suche prüft einen begrenzten lokalen IPv4-Bereich und kann Server in großen oder ungewöhnlich aufgebauten Netzwerken übersehen. Als Alternative steht die manuelle Eingabe unter Offline OVS zur Verfügung.
-- Der Dateiimport akzeptiert ausschließlich Sporttech-Arbeitsmappen im Format `.xlsx`. Das ältere Format `.xls`, ein direkter Import von `event.j3` und umbenannte Dateien, die keine ZIP-Archive sind, werden abgewiesen.
-- Beim Abrufen von JSON über das Netzwerk gelten Größenlimits für Antworten, Zeitlimits und eine Prüfung des Inhaltstyps.
-- Beim Lesen von ZIP- und XLSX-Dateien werden Grenzen für die Anzahl der Archiveinträge, sichere Dateipfade, komprimierte und unkomprimierte Größe, Kompressionsverhältnis und Arbeitsblattabmessungen angewendet.
+Sporttech bestimmt Punkte, Platzierungen, Phasen und Wettkampfgruppen. Die App addiert keine Qualifikations- und Finalpunkte, führt keine Gruppen zusammen und berechnet keine Rangfolgen neu. Urkundenkorrekturen betreffen Namen, Vereine, Teamnamen und Hinweise, ohne an Sporttech zurückzuschreiben.
 
-## Identität, Wettkampfphasen und Wertung {/* #identity-phases-and-scoring */}
-
-Zur Identifikation von Live-Ergebnissen werden bevorzugt stabile Sporttech-Kennungen verwendet:
-
-- Einzeleinträge verwenden Wettkampf oder Competition zusammen mit der Athleten-ID.
-- Synchroneinträge verwenden Wettkampf oder Competition zusammen mit der sortierten Menge der Athleten-IDs.
-- Teameinträge verwenden Competition zusammen mit der Team-ID.
-
-Wenn Sporttech keine stabilen IDs bereitstellt, verwendet der Importer normalisierte Namen und Klassen. Bei einer mehrdeutigen Zuordnung werden Warnungen erfasst.
-
-Die vereinheitlichten Wettkampfphasen sind `Qualification`, `Final` sowie ausdrücklich nicht unterstützte oder unbekannte Phasen. Lokalisierte Quellenbezeichnungen wie `Vorkampf` und `Finale` werden zugeordnet; die ursprünglichen Quellenmetadaten bleiben für die Diagnose verfügbar.
-
-Punktzahlen werden streng eingelesen. Zeichenfolgen mit angehängtem Text wie `12abc` sind ungültig. Leere, ungültige und nicht positive Gesamtpunktzahlen gelten als nicht gewertet, sofern der importierte Quellenstatus die Zeile nicht ausdrücklich als gewertet kennzeichnet.
-
-Für die Rangfolge und die Aufnahme in Ergebnislisten gilt dieselbe gemeinsame Regelung:
-
-- Gewertete Zeilen können eine Platzierung erhalten.
-- Nicht gewertete oder ungültige Zeilen erhalten keine berechnete Platzierung.
-- Eine Null darf nur gedruckt oder in die Rangfolge aufgenommen werden, wenn der Quellenstatus das Ergebnis ausdrücklich als gewertet kennzeichnet.
-- Die Auswahl zwischen Vorkampf, Finale und kombinierter Wertung muss in der Vorschau der Oberfläche und bei der PDF-Erstellung im Backend übereinstimmen.
+Vorschaudaten werden über Klasse und anschließend Eintrag ausgewählt. Eine ungültige Auswahl wird nicht unbemerkt durch den ersten Eintrag ersetzt. Urkundenexemplare wiederholen denselben Eintrag und bleiben zusammen.
 
 ## Speicherlimits {/* #storage-limits */}
 
-Für erzeugte Ausgaben gilt das dauerhaft in Settings gespeicherte Speicherlimit. Der Standard beträgt 512 MB je aktivem Ausgabebereich und kann zwischen 64 MB und 4096 MB eingestellt werden.
+Das Standardlimit für erzeugte Ausgaben beträgt 512 MB und ist von 64 bis 4096 MB einstellbar. Aufbewahrte PDFs und temporäre Ausgaben zählen dazu. Überschreitet ein Vorgang das Limit, beheben Sie den Speicherfehler; ältere gespeicherte/gedruckte PDFs werden nicht unbemerkt gelöscht, um Platz zu schaffen. Sichern Sie wichtige Dateien anderweitig, bevor Sie sie gezielt entfernen.
 
-PDF-Vorschauen, gespeicherte PDFs, Nachdrucke, Klassenlisten und Gruppen-PDFs zählen zu diesem Limit. Würde es überschritten, verweigert die App das Speichern einer zusätzlichen Vorschau oder entfernt eine gerade gerenderte, zu große PDF-Datei, bevor sie den Fehler zurückmeldet.
+## Vorlagendateien und entfernte Bilder {/* #template-assets-and-remote-images */}
 
-## Vorlagenmedien und externe Bilder {/* #template-assets-and-remote-images */}
+Gespeicherte Vorlagen behalten die für die Ausgabe benötigten lokalen Dateien. [Studio-Pakete](../certificate-studio/sharing-templates.md) übertragen Design und enthaltene Dateien, keine Eventdaten oder App-Einstellungen. Verlassen Sie sich für eine offline nutzbare Vorlage nicht auf eine entfernte Bild-URL; importieren Sie das Bild in das Design.
 
-Statische Vorlagenmedien sind Dateien, die im Upload-Verzeichnis für Vorlagen verwaltet werden. Beim Speichern von Laufzeitprofilen und Konfigurationen können keine beliebigen lokalen Pfade ausgewählt werden.
-
-Datengebundene Bilder sind auf bekannte Sporttech-Quellfelder für Teamlogos beschränkt. Externe Bilder dürfen von vertrauenswürdigen Sporttech-HTTPS-Hosts und aus daraus abgeleiteten Sporttech-Vereinssymbolen geladen werden. Das Abrufen lokaler oder privater Bilder über HTTP ist standardmäßig deaktiviert und ausschließlich für kontrollierte lokale Tests vorgesehen.
-
-Jeder Weiterleitungsschritt beim Abrufen dynamischer Bilder wird erneut geprüft. Antwortgröße, Inhaltstyp und Dateisignaturen werden vor dem Rendern kontrolliert. Temporäre Arbeitsverzeichnisse für das Rendern werden nach der Nutzung bereinigt.
+Systemschriften werden normalerweise referenziert und nicht mitverpackt. Fehlende Schriften benötigen beim Import einen verfügbaren Ersatz. Früher eingebettete Schriften bleiben unterstützt. Die Druckkalibrierung gehört zum Computer/Drucker und wird nicht mit einer Vorlage übertragen.
 
 ## Vorlagentreue {/* #template-fidelity */}
 
-Certificate-Studio-Profile sind die maßgebliche Grundlage für das gerenderte Urkundenlayout. Hochgeladene PDFs können als visuelle Hintergründe dienen. Hochgeladene DOCX-Dateien werden als Kompatibilitätsweg genutzt, um Seriendruck-Platzhalter, Seitengröße und einfache feste Texte auszulesen.
+PDF-/Word-Muster sind Ausgangspunkte, keine garantiert verlustfreien Importe oder automatischen Sporttech-Zuordnungen. Prüfen Sie übernommene Elemente, Schriften, Umbrüche und Importhinweise. Scans oder nicht unterstützte Grafiken können Bilder bleiben.
 
-Zuverlässig unterstützt werden:
+Ältere unterstützte Studio-Formate werden beim Öffnen in neueren Versionen migriert. Nicht unterstützte neuere Funktionen erfordern ein App-Update; universelle Kompatibilität mit allen zukünftigen Formaten wird nicht versprochen.
 
-- Von der App erzeugte Profil-JSON-Dateien.
-- PDF-Hintergründe mit im Studio verwalteten Text- und Bildüberlagerungen.
-- Die Erkennung von DOCX- und PDF-Platzhaltern, wenn diese für das Extraktionsverfahren sichtbar sind.
-- PNG-, JPG-, SVG-, WEBP- und PDF-Bilddateien innerhalb des verwalteten Vorlagenspeichers.
-
-Nur eingeschränkt oder heuristisch unterstützt werden:
-
-- PDF-Text in komprimierten Datenströmen oder Objektströmen kann der Platzhaltererkennung entgehen. Unkomprimierte Textplatzhalter in Rohform, mit Escape-Zeichen oder in Hexadezimaldarstellung werden durchsucht.
-- Komplexe DOCX-Layouts, frei platzierte Objekte, verschachtelte Felder, individuelle Abstände und nicht unterstützte Schriften werden möglicherweise nicht exakt wiedergegeben.
-- Das bisherige DOCX-Seriendruckverhalten ist als Kompatibilitätsfunktion zu verstehen, nicht als originalgetreuer Layouteditor.
-
-Die Vorlagentreue-Diagnose verwendet folgende Stufen:
-
-| Stufe | Bedeutung | Typische Quellen |
-| --- | --- | --- |
-| `exact` | Das eigene Profilformat der App kann ohne Rückerschließung als verbindliche Renderdefinition geladen werden. | Von Sporttech Certificate Tools erzeugte Profil-JSON-Dateien |
-| `heuristic` | Die hochgeladene Datei wurde untersucht und verwertbare Layout- oder Platzhalterhinweise wurden ausgelesen. Vor dem Druck musst du die Positionierung prüfen. | PDF-Platzhalter mit sichtbarem Text, einfache DOCX-Seriendruckfelder |
-| `limited` | Die Quelle enthält Konstrukte, durch die Platzhalter oder Layoutinformationen für das Extraktionsverfahren verborgen bleiben können. Die App kann die Quelle als Hintergrund oder Kompatibilitätseingabe behalten, aber keine vollständige Erkennung zusichern. | PDFs mit Komprimierung, Objektströmen oder Verschlüsselung; komplexe DOCX-Layouts |
+Als bereits vorgedruckt markierte Grafiken sind im Studio sichtbar und fehlen in jedem erzeugten PDF. Ein gedrucktes PDF wird nach erfolgreicher Auftragsübergabe aufbewahrt; dies garantiert nicht die physische Fertigstellung durch den Drucker.

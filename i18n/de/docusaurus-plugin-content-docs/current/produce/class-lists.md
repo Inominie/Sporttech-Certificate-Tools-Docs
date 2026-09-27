@@ -5,20 +5,18 @@ sidebar_position: 3
 
 # Klassenlisten {/* #class-lists */}
 
-Nutze **Class Lists**, wenn du druckbare Listen statt einzelner Urkundenseiten erstellen möchtest.
-
 ## Listentyp {/* #list-type */}
 
-Klassenlisten können für eine Ausgabe im Stil von Ergebnislisten verwendet werden. Welche Optionen verfügbar sind, hängt von den importierten Daten und der aktuellen App-Version ab.
+Wählen Sie **Startlisten** für eine Teilnehmerliste oder **Ergebnislisten** für Ergebnisse. Sie verwenden die ausgewählten Eventeinträge, ohne die Anzahl der Urkundenexemplare anzuwenden.
 
-## Wettkampfphase {/* #phase */}
+## Phase {/* #phase */}
 
-Wähle die Phase passend zur gewünschten Ausgabe. Die Standardoption für Ergebnislisten verwendet **Combined**, also die kombinierte Wertung, sofern sie verfügbar ist.
+Wählen Sie bei Ergebnislisten die verfügbare Qualifikations-, Final- oder gemeinsame Qualifikations-/Finalansicht. Die gemeinsame Ansicht ist der Standard. Sie stellt Sporttech-Phasenergebnisse dar; sie addiert keine Qualifikations- und Finalpunkte und berechnet keine neue Rangfolge.
 
-## Ausgabeumfang {/* #scope */}
+## Umfang {/* #scope */}
 
-Eine Klassenliste kann alle Gruppen oder eine ausgewählte Gruppe umfassen. Die Seitenzahl wird anhand der aktuellen Auswahl aktualisiert.
+Wählen Sie die betreffende Klasse oder einen verfügbaren größeren Umfang. Prüfen Sie Klassennamen, enthaltene Einträge und die gewählte Phase in der PDF-Vorschau. Kontrollieren Sie fehlende oder falsche Ergebnisse in Sporttech und aktualisieren Sie vor einer neuen Ausgabe.
 
 ## Vorlagenauswahl {/* #template-selection */}
 
-Urkundenvorlagen werden nicht für das Layout von Klassenlisten verwendet. Klassenlisten nutzen den integrierten PDF-Listenrenderer der App.
+Klassenlisten verwenden das Listenlayout der App statt der für Einzel, Synchron oder Team ausgewählten Urkundenvorlage. Urkundengrafiken, Layoutboxen, Exemplarzahlen und die Urkunden-Druckreihenfolge konfigurieren diese Listen nicht.

@@ -1,47 +1,26 @@
 ---
-title: "Import- und Korrekturregeln"
+title: "Import- und Prüfeinstellungen"
 sidebar_position: 2
 ---
 
-# Import- und Korrekturregeln {/* #import-and-review-policy */}
+# Import- und Prüfeinstellungen {/* #import-and-review-policy */}
 
-Unter Settings kannst du festlegen, wie importierte Wettkampfdaten in druckbare Urkundeninhalte umgewandelt werden.
-
-<figure className="app-screenshot">
-  <img src="/Sporttech-Certificate-Tools-Docs/img/app/settings-diagnostics.png" alt="Bereich Settings mit Optionen für Live-Import und Prüfdatenkorrekturen" />
-  <figcaption>Die Import- und Korrekturregeln werden in Settings gespeichert und beeinflussen, wie eingehende Sporttech-Daten für den Druck aufbereitet werden.</figcaption>
-</figure>
+Sporttech ist die maßgebliche Quelle für Wettkampfpunkte, Platzierungen und Gruppen. Die App importiert diese Werte für Urkunden und Listen; sie verwendet keine eigene Wertungsregel.
 
 ## Verhalten beim Live-Import {/* #live-import-behavior */}
 
-### Disziplin in die Urkundenklasse aufnehmen {/* #include-discipline-in-live-certificate-class */}
+### Disziplin in Live-Urkundenklasse aufnehmen {/* #include-discipline-in-live-certificate-class */}
 
-Wenn diese Option aktiviert ist, wird die Disziplin in die erzeugte Bezeichnung der Urkundenklasse aufgenommen.
+Aktivieren Sie diese Einstellung, wenn die Urkunden-Klassenbezeichnung die Disziplin enthalten soll. Aktualisieren oder importieren Sie erneut, um die Einstellung auf die Eventdaten anzuwenden. Dadurch ändert sich der Urkundentext, nicht die Identität der Wettkampfgruppe in der Quelle.
 
-Beispiel:
+### Qualifikations- und Finalpunkte {/* #add-qualification-score-to-finalist-total */}
 
-```text
-TRA Einzel mannlich
-```
+Frühere Beta-Anleitungen beschrieben eine Option zum Addieren von Qualifikationspunkten zu Finalgesamtwerten. Diese Option wurde entfernt. Verwenden Sie die von Sporttech gelieferten Punkte; ändern Sie die Wertung des Events bei Bedarf dort.
 
-statt:
+## Prüfungskorrekturen {/* #review-corrections */}
 
-```text
-Einzel mannlich
-```
+Sie können Urkundenangaben wie Athletennamen, Vereine, Teamnamen und Hinweise korrigieren. Eine Aktualisierung desselben Events erhält diese Korrekturen; ein neues Event oder Neustart löscht sie. Siehe [manuelle Korrekturen](../quick-check/corrections.md).
 
-### Vorkampfergebnis zur Gesamtpunktzahl der Finalteilnehmenden addieren {/* #add-qualification-score-to-finalist-total */}
+### Zuständigkeit für Gruppenplatzierungen {/* #recalculate-placements-when-merging-groups */}
 
-Wenn diese Option aktiviert ist, wird bei Finalteilnehmenden die Summe aus Vorkampf- und Finalergebnis gedruckt. Bei Personen ohne Finalteilnahme bleibt es beim Vorkampfergebnis.
-
-Nutze diese Option nur, wenn die Urkundenregel des Wettkampfs eine gemeinsame Wertung aus Vorkampf und Finale vorsieht.
-
-## Korrekturen bei der Datenprüfung {/* #review-corrections */}
-
-### Platzierungen beim Zusammenführen von Gruppen neu berechnen {/* #recalculate-placements-when-merging-groups */}
-
-Wenn diese Option aktiviert ist, werden die Platzierungen nach dem Zusammenführen von Gruppen neu berechnet.
-
-Wenn sie deaktiviert ist, behalten die Teilnehmenden ihre importierten oder manuell korrigierten Platzierungen.
-
-Die gemeinsamen Regeln für Import, Identität, Wettkampfphasen, Punktzahlen und Rangfolge in Oberfläche und PDF-Erstellung findest du unter [Verbindliches App-Verhalten](../reference/behavior-contracts.md).
+Lokales Zusammenführen oder Umbenennen von Gruppen und die Neuberechnung von Platzierungen sind nicht mehr verfügbar. Korrigieren Sie Gruppen oder Rangfolgen in Sporttech und aktualisieren Sie. Das Ausschließen/Wiederherstellen von Einträgen oder Gruppen betrifft nur die Druckauswahl der App.

@@ -28,6 +28,6 @@ Then click **Import Offline OVS**.
 
 ## Refresh offline data
 
-Click **Refresh Offline Data** to reload the latest data from the selected local server.
+Use the header refresh icon to reload the selected local server from any section, including Studio. [Auto-refresh](auto-refresh.md) is enabled by default and configured in Settings. Same-event refresh keeps certificate corrections. The server must remain reachable; a failed refresh leaves the previous data available and reports an error.
 
 Direct `event.j3` import is not currently available. Use the running OVS server or a Sporttech Excel export instead.
