@@ -4,29 +4,25 @@ sidebar_position: 2
 
 # Checking for updates
 
-Sporttech Certificate Tools can check whether the installed beta matches the current public beta manifest.
+The desktop app checks for updates at startup. You can also open **Settings → Beta updates → Check for updates**. Updates and installers are hosted in the [public documentation repository's releases](https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/releases).
 
-The check is status-only. The app never downloads, installs, restarts, replaces itself, runs update commands, or opens installer files automatically.
+## Versions with in-app updates
 
-## When the app checks
+1. Choose **Download update** when a newer version is available. You can continue working during the download and cancel it if needed.
+2. The app verifies the downloaded file against signed release information. A failed verification prevents installation.
+3. Finish competition work and choose **Restart and install**. Unsaved Studio changes must be saved or discarded, and active operations must finish first. You can cancel the restart.
+4. After reopening, check the installed version in Settings.
 
-- On application start, the app checks the public beta manifest once.
-- In **Settings**, use **Check for updates** to run the check again.
-- If a newer beta is available, the main window shows a small update notice.
+**Restarting clears the loaded event and manual certificate corrections.** Reload the event afterwards. Saved templates, image/font assets, settings, and saved/printed PDFs remain in their existing locations. Preview PDFs are temporary. An update creates a local backup of templates and settings under `update-backups` in the app's data folder; contact support before restoring it.
 
-If the update service cannot be reached, the app continues normally. Use the installed beta for the current event and check again later.
+Downloads do not install themselves when you normally close the app. Installation always starts with **Restart and install**. An unavailable update service does not prevent competition work.
 
-## Installing a newer beta
+## First update from an older beta
 
-1. Finish active competition work first.
-2. Save or print any PDFs that are needed from the current session.
-3. Close Sporttech Certificate Tools.
-4. Download the newer beta from the established private beta channel or the beta release page.
-5. Install the macOS DMG or Windows installer manually.
-6. Open the app again and check **Settings** to confirm the installed version.
+Older versions only show an update notification. Install the first updater-enabled version manually from the public release page. On Mac, move the app from its DMG into Applications before running it. Subsequent updater-enabled versions use the in-app flow.
 
-Avoid downgrading during an event unless support specifically asks you to do so.
+## If an update fails
 
-## Reporting update problems
+Check your connection and try **Check again**. Keep using the current application if a download or verification fails. Never replace an installer or bypass a signature failure. Windows security policies can still block unsigned Windows installers; ask the club's administrator or contact support. Mac releases supporting this flow are Developer ID signed and notarized.
 
-If the app reports an unexpected version, cannot compare the installed build, or repeatedly fails to reach the manifest, create a support bundle from **Settings** and include a screenshot of the update status.
+Include a screenshot of Settings' version/build information and the update error when contacting support. Avoid downgrading: older applications may not support newer template data.

@@ -5,29 +5,25 @@ sidebar_position: 2
 
 # Nach Updates suchen {/* #checking-for-updates */}
 
-Sporttech Certificate Tools kann prüfen, ob die installierte Beta dem aktuellen öffentlichen Beta-Manifest entspricht.
+Die Desktop-App sucht beim Start nach Updates. Über **Einstellungen → Beta-Updates → Nach Updates suchen** können Sie die Prüfung erneut starten. Updates und Installationsdateien finden Sie in den [Veröffentlichungen des öffentlichen Dokumentations-Repositories](https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/releases).
 
-Die Prüfung zeigt ausschließlich den Status an. Die App lädt niemals automatisch Updates herunter, installiert sie, startet sich neu, ersetzt sich selbst, führt Update-Befehle aus oder öffnet Installationsdateien.
+## Versionen mit integrierten Updates {/* #versions-with-in-app-updates */}
 
-## Wann die App prüft {/* #when-the-app-checks */}
+1. Wählen Sie **Update herunterladen**, wenn eine neuere Version bereitsteht. Währenddessen können Sie weiterarbeiten und den Download bei Bedarf abbrechen.
+2. Die App prüft die Datei anhand signierter Veröffentlichungsinformationen. Eine fehlgeschlagene Prüfung verhindert die Installation.
+3. Beenden Sie die Wettkampfarbeit und wählen Sie **Neu starten und installieren**. Ungespeicherte Studio-Änderungen müssen gespeichert oder verworfen und laufende Vorgänge abgeschlossen werden. Der Neustart lässt sich abbrechen.
+4. Prüfen Sie nach dem erneuten Öffnen die installierte Version in den Einstellungen.
 
-- Beim Start prüft die App das öffentliche Beta-Manifest einmal.
-- Unter **Settings** kannst du die Prüfung mit **Check for updates** erneut starten.
-- Wenn eine neuere Beta verfügbar ist, erscheint im Hauptfenster ein kleiner Update-Hinweis.
+**Ein Neustart löscht das geladene Event und manuelle Urkundenkorrekturen.** Laden Sie das Event danach erneut. Gespeicherte Vorlagen, Bild-/Schriftdateien, Einstellungen sowie gespeicherte/gedruckte PDFs bleiben an ihren bisherigen Speicherorten erhalten. Vorschau-PDFs sind temporär. Vor einem Update wird eine lokale Sicherung von Vorlagen und Einstellungen im Unterordner `update-backups` des App-Datenordners erstellt. Kontaktieren Sie vor einer Wiederherstellung den Support.
 
-Falls der Update-Dienst nicht erreichbar ist, funktioniert die App normal weiter. Nutze die installierte Beta für den aktuellen Wettkampf und prüfe später erneut auf Updates.
+Ein Download wird beim normalen Beenden der App nicht installiert. Die Installation beginnt erst über **Neu starten und installieren**. Ein nicht erreichbarer Update-Dienst verhindert die Wettkampfarbeit nicht.
 
-## Eine neuere Beta installieren {/* #installing-a-newer-beta */}
+## Erstes Update von einer älteren Beta {/* #first-update-from-an-older-beta */}
 
-1. Schließe zuerst die laufenden Wettkampfaufgaben ab.
-2. Speichere oder drucke alle PDFs, die du aus der aktuellen Sitzung noch benötigst.
-3. Schließe Sporttech Certificate Tools.
-4. Lade die neuere Beta über den etablierten privaten Beta-Kanal oder die Beta-Release-Seite herunter.
-5. Installiere die macOS-DMG-Datei oder das Windows-Installationsprogramm manuell.
-6. Öffne die App erneut und kontrolliere unter **Settings** die installierte Version.
+Ältere Versionen zeigen nur einen Update-Hinweis. Installieren Sie die erste Version mit integriertem Updater manuell von der öffentlichen Release-Seite. Auf dem Mac die App vor dem Start aus dem DMG nach Programme verschieben. Danach können weitere Updates innerhalb der App installiert werden.
 
-Vermeide während eines Wettkampfs den Wechsel auf eine ältere Version, sofern der Support dich nicht ausdrücklich dazu auffordert.
+## Wenn ein Update fehlschlägt {/* #if-an-update-fails */}
 
-## Update-Probleme melden {/* #reporting-update-problems */}
+Prüfen Sie die Verbindung und wählen Sie **Erneut prüfen**. Bei einem Download- oder Prüffehler können Sie mit der aktuellen App weiterarbeiten. Ersetzen Sie keine Installationsdatei und umgehen Sie keine fehlgeschlagene Signaturprüfung. Windows-Sicherheitsrichtlinien können unsignierte Windows-Installer weiterhin blockieren; wenden Sie sich an die Administration des Vereins oder den Support. Mac-Versionen mit diesem Update-Verfahren sind mit Developer ID signiert und notarisiert.
 
-Wenn die App eine unerwartete Version meldet, die installierte Version nicht vergleichen kann oder wiederholt das Manifest nicht erreicht, erstelle unter **Settings** ein Support-Paket und füge einen Screenshot des Update-Status hinzu.
+Senden Sie dem Support einen Screenshot der Versions-/Build-Angaben und der Fehlermeldung. Vermeiden Sie ältere App-Versionen: Diese unterstützen möglicherweise neuere Vorlagendaten nicht.
