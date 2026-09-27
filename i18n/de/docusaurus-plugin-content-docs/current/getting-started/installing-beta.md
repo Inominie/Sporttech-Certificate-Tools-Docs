@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Beta installieren {/* #installing-the-beta */}
 
-Sporttech Certificate Tools wird derzeit als unsignierte Beta-Software verteilt. Installiere die App nur auf Computern, auf denen unsignierte Beta-Software zugelassen ist.
+Lade die Installationsdateien von der [öffentlichen Release-Seite](https://github.com/Inominie/Sporttech-Certificate-Tools-Docs/releases) herunter. Neue Mac-Versionen mit integriertem Updater sind signiert und notarisiert. Windows-Installer bleiben unsigniert; der Computer muss ihre Installation erlauben.
 
 ## macOS {/* #macos */}
 
@@ -15,7 +15,7 @@ Sporttech Certificate Tools wird derzeit als unsignierte Beta-Software verteilt.
 4. Starte die App.
 5. Falls macOS die App blockiert, öffne **Systemeinstellungen > Datenschutz & Sicherheit** und erlaube dort den Start der App.
 
-Warnungen von macOS Gatekeeper sind bei unsignierten Beta-Versionen zu erwarten.
+Ältere unsignierte Betas können zusätzliche Gatekeeper-Warnungen anzeigen. Installiere die neue signierte App in Programme, damit zukünftige Updates innerhalb der App möglich sind.
 
 ## Windows {/* #windows */}
 
